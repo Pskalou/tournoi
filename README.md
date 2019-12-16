@@ -7,6 +7,6 @@ Nous avons décidé de créer une application multi plateforeme : **Tournoi**.
 
 ## Équipe
 
-* Pskalou
-* ...
-* ...
+* Pascal : [Pskalou](https://github.com/Pskalou)
+* Raphaël
+* Thomas
