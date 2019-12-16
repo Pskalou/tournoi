@@ -1,6 +1,6 @@
 # Notebook
 
-Les Notebook sont des pages mélant code (en python3) et textes (en Markdown/LaTeX).
+Les Notebooks sont des pages mélant code (en python3) et textes (en Markdown/LaTeX).
 
 Github permet de les visualiser.
 
