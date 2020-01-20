@@ -1,9 +1,4 @@
 extends Node
-#var newScene= preload("res://newTournoiMenu.tscn")
-#var node_newScene= newScene.instance()
-
-var newMatch= preload("res://bouton_participant.tscn")
-var node_newMatch= newMatch.instance()
 
 
 func emptyMatrix (n):
@@ -93,17 +88,17 @@ func allTourMatchsTextGenerator(tour) :
 
 func updateTextTourMatchs():
 	var texte= allTourMatchsTextGenerator(tourIndex)
-	$MarginContainer/VBoxContainer/HBoxContainer/vboxTours/richlab_tour.set_text(texte)
+	toursMaths_node.set_text(texte)
 
 
 func updateTextNumberPlayers():
-	$MarginContainer/VBoxContainer/HboxGenerate/lab_participants.set_text("Nombre de participants : %3s" % nbParticipants)
+	nbParticipant_node.set_text("Nombre de participants : %3s" % nbParticipants)
 
 
 var tourIndex=1
 func updateTextTourIndex():
 	var texte= "Tour n° %3s" % tourIndex
-	$MarginContainer/VBoxContainer/HBoxContainer/vboxTours/hbox_tour/lab_tourIndex.set_text(texte)
+	tourIndex_node.set_text(texte)
 
 
 func updateAllText () :	
@@ -139,15 +134,51 @@ func _on_bt_tourIndexPrev_pressed():
 var nbParticipants= 6
 var tournoi = matrice_tournoi(nbParticipants)
 var nbTour= nbParticipants-1
+var toursMaths_node
+var nbParticipant_node
+var tourIndex_node
+var allTournoi_node
+
+
+#var newScene= preload("res://newTournoiMenu.tscn")
+#var node_newScene= newScene.instance()
+
+var newMatch= preload("res://vrac/bouton_participant.tscn")
+var node_newMatch= newMatch.instance()
+
+
+#var newScene= preload("res://newTournoiMenu.tscn")
+#var node_newScene= newScene.instance()
+
+func tour_generator(tour) :
+	var current=""
+	var index_first_player
+	var index_second_player
+	tournoi = matrice_tournoi(nbParticipants)
+	nbTour= nbParticipants-1
+	for i in range (nbParticipants):
+		index_first_player= i
+		index_second_player= adversaire(index_first_player, tour-1)
+		current+= str(index_first_player) + " vs " + str(index_second_player) + "\n"
+	current+= "\n"
+	return current
+
 
 
 func _ready():
+	toursMaths_node= $MarginContainer/VBoxContainer/HBoxContainer/vboxTours/HBoxContainer/richlab_tour
+	nbParticipant_node= $MarginContainer/VBoxContainer/HboxGenerate/lab_participants
+	tourIndex_node= $MarginContainer/VBoxContainer/HBoxContainer/vboxTours/hbox_tour/lab_tourIndex
+	allTournoi_node= $MarginContainer/VBoxContainer/HBoxContainer/vboxTours/HBoxContainer/CenterContainer
 	#add_child(node_newScene)
-	add_child(newMatch)
+	#add_child(newMatch)
+	node_newMatch.me_id= 100
+	allTournoi_node.add_child(node_newMatch)
+	
+	print(tour_generator(1))
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	updateAllText()
-	$MarginContainer/VBoxContainer/HBoxContainer/vboxTours/richlab_tour.add_child(newMatch)
 	
 
 func _process(delta):
