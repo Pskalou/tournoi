@@ -13,5 +13,5 @@ Nous avons décidé de créer une application multi plateforeme : **Tournoi**.
 ## Équipe
 
 * Pascal : [Pskalou](https://github.com/Pskalou)
-* Raphaël : [raphael-sellam](https://github.com/raphael-sellam)
-* Thomas : 
+* Raphaël : [RaphaelSellam](https://github.com/RaphaelSellam)
+* Thomas : ?? [thomaslesage](https://github.com/thomaslesage) ??
