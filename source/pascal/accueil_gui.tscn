@@ -1,0 +1,309 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://accueil_gui.gd" type="Script" id=1]
+[ext_resource path="res://assets/accueil_menu/label_titre.png" type="Texture" id=2]
+[ext_resource path="res://assets/accueil_menu/label_new.png" type="Texture" id=3]
+[ext_resource path="res://assets/accueil_menu/label_new_over.png" type="Texture" id=4]
+[ext_resource path="res://assets/accueil_menu/label_historique.png" type="Texture" id=5]
+[ext_resource path="res://assets/accueil_menu/label_options.png" type="Texture" id=6]
+[ext_resource path="res://assets/accueil_menu/label_illustration.png" type="Texture" id=7]
+[ext_resource path="res://accueil_cli.tscn" type="PackedScene" id=8]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+render_priority = 0
+blend_mode = 0
+light_mode = 0
+
+[node name="Panel" type="Panel"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "custom_constants" ]
+
+[node name="MarginContainer" type="MarginContainer" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/margin_right = 60
+custom_constants/margin_top = 40
+custom_constants/margin_left = 60
+custom_constants/margin_bottom = 40
+_sections_unfolded = [ "Size Flags", "custom_constants" ]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 60.0
+margin_top = 40.0
+margin_right = 964.0
+margin_bottom = 560.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 450.0
+margin_bottom = 520.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="TextureRect_title" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 450.0
+margin_bottom = 258.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+stretch_mode = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 262.0
+margin_right = 450.0
+margin_bottom = 520.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="TextureButton_new" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 20.0
+margin_right = 450.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 68.0
+margin_right = 450.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 0, 30 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Visibility" ]
+
+[node name="TextureButton_history" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" index="2"]
+
+material = SubResource( 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 102.0
+margin_right = 450.0
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 5 )
+_sections_unfolded = [ "Material", "Textures", "Theme", "Visibility" ]
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 154.0
+margin_right = 450.0
+margin_bottom = 184.0
+rect_min_size = Vector2( 0, 30 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="TextureButton_options" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 188.0
+margin_right = 450.0
+margin_bottom = 237.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 6 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 454.0
+margin_right = 904.0
+margin_bottom = 520.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+use_top_left = false
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="TextureRect_illustration" type="TextureRect" parent="MarginContainer/HBoxContainer/CenterContainer" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 117.0
+margin_right = 330.0
+margin_bottom = 403.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 7 )
+stretch_mode = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="myGrid" type="GridContainer" parent="MarginContainer/HBoxContainer/CenterContainer" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 225.0
+margin_top = 260.0
+margin_right = 225.0
+margin_bottom = 260.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+columns = 2
+
+[node name="Label" parent="MarginContainer/HBoxContainer/CenterContainer/myGrid" index="0" instance=ExtResource( 8 )]
+
+[node name="Label2" parent="MarginContainer/HBoxContainer/CenterContainer/myGrid" index="1" instance=ExtResource( 8 )]
+
+[node name="Label3" parent="MarginContainer/HBoxContainer/CenterContainer/myGrid" index="2" instance=ExtResource( 8 )]
+
+[node name="Label4" parent="MarginContainer/HBoxContainer/CenterContainer/myGrid" index="3" instance=ExtResource( 8 )]
+
+[node name="Label5" parent="MarginContainer/HBoxContainer/CenterContainer/myGrid" index="4" instance=ExtResource( 8 )]
+
+[node name="Label6" parent="MarginContainer/HBoxContainer/CenterContainer/myGrid" index="5" instance=ExtResource( 8 )]
+
+[node name="Label7" parent="MarginContainer/HBoxContainer/CenterContainer/myGrid" index="6" instance=ExtResource( 8 )]
+
+[node name="Label8" parent="MarginContainer/HBoxContainer/CenterContainer/myGrid" index="7" instance=ExtResource( 8 )]
+
+[node name="Label9" parent="MarginContainer/HBoxContainer/CenterContainer/myGrid" index="8" instance=ExtResource( 8 )]
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/TextureButton_new" to="." method="_on_TextureButton_new_pressed"]
+
+
