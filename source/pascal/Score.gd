@@ -14,8 +14,7 @@ func _init(total_players):
 	# intialisation du tableau de score
 	for i in range (total_players):
 		self._results.append({})
-	# affichage pour voir
-	print(self._results)
+	print("Tableau de score créé vide pour ",_total_players," players")
 
 func exist_result(id1, id2):
 	if _results[id1].has(id2):	return true
@@ -31,8 +30,8 @@ func set_result(player_id, opponent_id, state):
 		_results[opponent_id][player_id]= 2
 	if state == 2:
 		_results[player_id][opponent_id]= 2
-		_results[opponent_id][player_id]= 1		
-	print(score_en_texte())
+		_results[opponent_id][player_id]= 1
+	print("player_id:",player_id, ", opponent_id:", opponent_id, ", state:", state)
 
 
 func get_result(player_id, opponent_id):

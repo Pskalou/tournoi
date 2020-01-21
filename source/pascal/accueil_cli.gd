@@ -64,8 +64,8 @@ func button_builder():
 		# création des instances des boutons
 		players_list.erase(id2)
 		match_list.append(newMatch.instance())
-		match_list[i].me_id= id1
-		match_list[i].other_id= id2
+		match_list[i].player_id= id1
+		match_list[i].opponent_id= id2
 		# initialisation des états
 		match_list[i].state= score.get_result(id1, id2)
 		# initialisation de la position

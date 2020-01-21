@@ -14,9 +14,9 @@ var neutral_color= Color(0.414062,0.414062,0.414062)
 var state= 0
 
 # valeurs par défaut (id et label)
-var me_id= 1
+var player_id= 1
 var me_name
-var other_id= 2
+var opponent_id= 2
 var other_name
 
 
@@ -29,8 +29,8 @@ func _ready():
 	
 	
 	# initialisation des labels
-	var me_name= "participant "+str(me_id)
-	var other_name= "participant "+str(other_id)
+	var me_name= "participant "+str(player_id)
+	var other_name= "participant "+str(opponent_id)
 	$VBoxContainer/me.set_text(me_name)
 	$VBoxContainer/other.set_text(other_name)
 	
@@ -65,6 +65,5 @@ func update_color():
 func _on_clic_pressed():
 	state = (state+1)%3
 	update_color()
-	print("pressed : state = ",state)
 	
-	emit_signal("is_pressed", me_id, other_id, state)
+	emit_signal("is_pressed", player_id, opponent_id, state)
