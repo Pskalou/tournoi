@@ -1,4 +1,7 @@
 # Class Matrix.gd
+# gère la répartition des matchs, tour par tour, adversaire par adversaire
+# utilise l'algorithme python du notebook
+
 
 var _matrix= []
 var _total_players

@@ -1,3 +1,8 @@
+# script associé à la scène bouton_participant
+# affiche 2 "boutons" liés entres eux par la couleur
+
+
+
 extends TextureButton
 
 # 3 couleurs
@@ -23,14 +28,16 @@ signal is_pressed
 func _ready():
 	
 	
-	# initialisation des couleurs
-	update_color()
-	
 	# initialisation des labels
 	var me_name= "participant "+str(me_id)
 	var other_name= "participant "+str(other_id)
 	$VBoxContainer/me.set_text(me_name)
 	$VBoxContainer/other.set_text(other_name)
+	
+	
+	# initialisation des couleurs
+	update_color()
+	
 	
 	
 	connect("is_pressed", self, "signal_handler")
