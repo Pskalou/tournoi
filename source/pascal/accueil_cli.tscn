@@ -36,7 +36,6 @@ _sections_unfolded = [ "custom_constants" ]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -133,6 +132,7 @@ group = null
 text = "+"
 flat = false
 align = 1
+_sections_unfolded = [ "Grow Direction", "Rect" ]
 
 [node name="bt_less" type="Button" parent="MarginContainer/VBoxContainer/HboxGenerate/vbox_bt" index="1"]
 
@@ -195,7 +195,6 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="hbox_tour" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/vboxTours" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -329,7 +328,7 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Size Flags" ]
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/vboxTours/HBoxContainer" index="1"]
+[node name="allTournoi" type="Container" parent="MarginContainer/VBoxContainer/HBoxContainer/vboxTours/HBoxContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -344,15 +343,14 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-use_top_left = false
 _sections_unfolded = [ "Size Flags" ]
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HboxGenerate/vbox_bt/bt_more" to="." method="_on_bt_more_pressed"]
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HboxGenerate/vbox_bt/bt_less" to="." method="_on_bt_less_pressed"]
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/vboxTours/hbox_tour/bt_tourIndexPrev" to="." method="_on_bt_tourIndexPrev_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/vboxTours/hbox_tour/bt_tourIndexPrev" to="." method="_on_bt_previous_round_pressed"]
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/vboxTours/hbox_tour/bt_tourIndexNext" to="." method="_on_bt_tourIndexNext_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/vboxTours/hbox_tour/bt_tourIndexNext" to="." method="_on_bt_next_round_pressed"]
 
 

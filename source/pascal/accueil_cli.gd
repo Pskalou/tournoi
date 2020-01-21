@@ -1,188 +1,115 @@
 extends Node
 
 
-func emptyMatrix (n):
-	var tab=[0]
-	tab.resize(n)
-	for i in range (n):
-		var ligne= [0]
-		ligne.resize(n)
-		tab[i]=ligne
-	return tab
+var round_index=0
+var total_players= 6
+var round_indexsMaths_node
+var total_players_node
+var round_index_node
+var allgame_node
 
 
-func matrice_nbPaire(n):
-	var tab= emptyMatrix(n)
-    # remplissage du tableau entier
-    # chaque ligne décallée de 1 par rapport à la précédente
-	for i in range(n):
-		for j in range (n):
-			tab[i][j] = (j+i-1)%(n-1)  
-    # remplissage de la dernière colonne et dernière ligne
-	var val
-	for i in range(n):
-		val= (n+2*i-2)%(n-1)
-		tab[i][n-1]= val        
-		tab[n-1][i]= val
-    # remplissage de la diagonale avec -1
-	for i in range(n):
-		tab[i][i]= -1
-	return tab
+var Game= preload("res://Game.gd")
+var game
 
 
-func matrice_nbImpaire(n):
-	var tab= emptyMatrix(n)
-    # un tableau impaire sera un extrait du tableau
-    # paire de dimension n+1
-	var tab_paire= matrice_nbPaire(n+1)
-	for i in range (n):
-		for j in range(n):
-			tab[i][j]= tab_paire[i][j]
-	return tab
-
-func matrice_tournoi(n):
-    # deux cas en fonction du nombre paire
-    # ou impaire de participants
-    if n%2 ==0:
-        return matrice_nbPaire (n)
-    else:
-        return matrice_nbImpaire (n)
+var newMatch= load("res://vrac/bouton_participant.tscn")
 
 
-func adversaire(participant, tour):
-	if (tour > nbTour || participant > nbParticipants) : return null
-	for i in range(nbParticipants):
-		if tournoi[participant][i]==tour: return i
+func _ready():
+	game= Game.new(6)
+	
+	
+	print(game.opponent(3,0))
+	
+	
+	round_indexsMaths_node= $MarginContainer/VBoxContainer/HBoxContainer/vboxTours/HBoxContainer/richlab_tour
+	total_players_node= $MarginContainer/VBoxContainer/HboxGenerate/lab_participants
+	round_index_node= $MarginContainer/VBoxContainer/HBoxContainer/vboxTours/hbox_tour/lab_tourIndex
+	allgame_node= $MarginContainer/VBoxContainer/HBoxContainer/vboxTours/HBoxContainer/allTournoi
+	#add_child(node_newScene)
+	#add_child(newMatch)
+	
+	updateAllText()
+	
+	
+	var node_newMatch1= newMatch.instance()
+	node_newMatch1.me_id= 0
+	node_newMatch1.other_id= game.opponent(0, round_index)
+	node_newMatch1.state= 1
+	node_newMatch1.rect_position = Vector2(0,0)
+	allgame_node.add_child(node_newMatch1)
+	node_newMatch1.connect("is_pressed", self, "changement_resultat_handler")
+	
+	
+	var node_newMatch2= newMatch.instance()
+	node_newMatch2.me_id= 2
+	node_newMatch2.other_id= game.opponent(node_newMatch2.me_id, round_index)
+	node_newMatch2.state= 2
+	node_newMatch2.rect_position = Vector2(0,50)
+	allgame_node.add_child(node_newMatch2)
+	node_newMatch2.connect("is_pressed", self, "changement_resultat_handler")
+	
+	
+	
+
+# 
+func changement_resultat_handler(id1, id2, state):
+	print ("changement résultats : ", id1," vs ", id2," → " , state)
+	
 
 
-func match(tour):
-	var result=[]
-	var texte
-	for i in range(nbParticipants):
-		texte = "%s vs %s" % [i, adversaire(i, tour)]
-		result.append(texte)
-	return result
-
-
-func allMatchsTextGenerator() :
-	tournoi = matrice_tournoi(nbParticipants)
-	nbTour= nbParticipants-1
-	var current= "Tous les matchs :\n\n"
-	for k in range (nbTour):
-		current += "Tour n°" + str(k+1) + "\n"
-		for i in match(k):
-			current += str(i) + "\t"
-		current+= "\n\n"
-	return current
-
-
-func allTourMatchsTextGenerator(tour) :
-	var current=""
-	tournoi = matrice_tournoi(nbParticipants)
-	nbTour= nbParticipants-1
-	for i in range (nbParticipants):
-		current+= str(i) + " vs " + str(adversaire(i, tour-1)) + "\n"
-	current+= "\n"
-	return current
-
-
-func updateTextTourMatchs():
-	var texte= allTourMatchsTextGenerator(tourIndex)
-	toursMaths_node.set_text(texte)
-
-
-func updateTextNumberPlayers():
-	nbParticipant_node.set_text("Nombre de participants : %3s" % nbParticipants)
-
-
-var tourIndex=1
-func updateTextTourIndex():
-	var texte= "Tour n° %3s" % tourIndex
-	tourIndex_node.set_text(texte)
-
-
-func updateAllText () :	
-	updateTextNumberPlayers()
-	updateTextTourIndex()
-	updateTextTourMatchs()
-
-
+# gestion des boutons et des différents appels
 func _on_bt_more_pressed():
-	nbParticipants += 1
+	total_players += 1
+	game = Game.new(total_players)
 	updateAllText()
 
 
 func _on_bt_less_pressed():
-	if nbParticipants == 2: return null
-	nbParticipants -= 1
-	tourIndex= min(nbParticipants-1,tourIndex)
+	if total_players == 2: return null
+	total_players -= 1
+	game = Game.new(total_players)
+	round_index= min(total_players-1,round_index)
 	updateAllText()
 
 
-func _on_bt_tourIndexNext_pressed():
-	if tourIndex == nbParticipants-1 : return null
-	tourIndex += 1
+func _on_bt_next_round_pressed():
+	if round_index == total_players-2 : return null
+	round_index += 1
 	updateAllText()
 
 
-func _on_bt_tourIndexPrev_pressed():
-	if tourIndex == 1: return null
-	tourIndex -= 1
+func _on_bt_previous_round_pressed():
+	if round_index == 0: return null
+	round_index -= 1
 	updateAllText()
 
-
-var nbParticipants= 6
-var tournoi = matrice_tournoi(nbParticipants)
-var nbTour= nbParticipants-1
-var toursMaths_node
-var nbParticipant_node
-var tourIndex_node
-var allTournoi_node
-
-
-#var newScene= preload("res://newTournoiMenu.tscn")
-#var node_newScene= newScene.instance()
-
-var newMatch= preload("res://vrac/bouton_participant.tscn")
-var node_newMatch= newMatch.instance()
-
-
-#var newScene= preload("res://newTournoiMenu.tscn")
-#var node_newScene= newScene.instance()
-
-func tour_generator(tour) :
-	var current=""
-	var index_first_player
-	var index_second_player
-	tournoi = matrice_tournoi(nbParticipants)
-	nbTour= nbParticipants-1
-	for i in range (nbParticipants):
-		index_first_player= i
-		index_second_player= adversaire(index_first_player, tour-1)
-		current+= str(index_first_player) + " vs " + str(index_second_player) + "\n"
-	current+= "\n"
-	return current
-
-
-
-func _ready():
-	toursMaths_node= $MarginContainer/VBoxContainer/HBoxContainer/vboxTours/HBoxContainer/richlab_tour
-	nbParticipant_node= $MarginContainer/VBoxContainer/HboxGenerate/lab_participants
-	tourIndex_node= $MarginContainer/VBoxContainer/HBoxContainer/vboxTours/hbox_tour/lab_tourIndex
-	allTournoi_node= $MarginContainer/VBoxContainer/HBoxContainer/vboxTours/HBoxContainer/CenterContainer
-	#add_child(node_newScene)
-	#add_child(newMatch)
-	node_newMatch.me_id= 100
-	allTournoi_node.add_child(node_newMatch)
-	
-	print(tour_generator(1))
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	updateAllText()
-	
 
 func _process(delta):
 	pass
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+
+
+# Gestion  des affichages
+func update_rounds_text():
+	var texte=""
+##	nbround_index= total_players-1
+	for i in range (total_players):
+		texte+= str(i) + " vs " + str(game.opponent(i, round_index)) + "\n"
+	texte+= "\n"
+	round_indexsMaths_node.set_text(texte)
+
+
+func update_total_players_text():
+	total_players_node.set_text("Nombre de participants : %3s" % total_players)
+
+
+func update_round_index_text():
+	var texte= "Tour n° %3s" % round_index
+	round_index_node.set_text(texte)
+
+
+func updateAllText () :	
+	update_total_players_text()
+	update_round_index_text()
+	update_rounds_text()
