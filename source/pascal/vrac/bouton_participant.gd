@@ -40,7 +40,7 @@ func _ready():
 	
 	
 	
-	connect("is_pressed", self, "signal_handler")
+	#connect("is_pressed", self, "signal_handler")
 
 
 
