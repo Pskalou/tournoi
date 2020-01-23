@@ -1,8 +1,6 @@
 # script associé à la scène bouton_participant
 # affiche 2 "boutons" liés entres eux par la couleur
 
-
-
 extends TextureButton
 
 # 3 couleurs
@@ -17,39 +15,21 @@ var state= 0
 var player_id= 1
 var me_name
 var opponent_id= 2
-var other_name
-
-
+var opponent_name
 
 signal is_pressed
 
 
-
 func _ready():
-	
-	
 	# initialisation des labels
 	var me_name= "participant "+str(player_id)
-	var other_name= "participant "+str(opponent_id)
+	var opponent_name= "participant "+str(opponent_id)
 	$VBoxContainer/me.set_text(me_name)
-	$VBoxContainer/other.set_text(other_name)
-	
-	
+	$VBoxContainer/other.set_text(opponent_name)
+		
 	# initialisation des couleurs
 	update_color()
-	
-	
-	
-	#connect("is_pressed", self, "signal_handler")
 
-
-
-func _process(delta):
-	#$VBoxContainer/me.set_text(me_name)
-	#$VBoxContainer/other.set_text(other_name)
-	# Called every frame. Delta is time since last frame.
-	# Update game logic here.
-	pass
 
 func update_color():
 	if state==0 :
@@ -61,6 +41,7 @@ func update_color():
 	if state==2:
 		$VBoxContainer/me/fonds.modulate = lost_color
 		$VBoxContainer/other/fonds.modulate= win_color 
+
 
 func _on_clic_pressed():
 	state = (state+1)%3

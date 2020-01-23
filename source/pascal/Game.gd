@@ -14,6 +14,8 @@ func _init(total_players):
 	print("Partie créé avec ",total_players, " players")
 
 
+func get_total_players():
+	return _total_players
 
 func opponent(player, round_index):
 	"""

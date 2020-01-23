@@ -2,9 +2,8 @@
 
 [ext_resource path="res://vrac/bouton_participant.gd" type="Script" id=1]
 
-[node name="match" type="TextureButton"]
+[node name="match" type="TextureButton" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
