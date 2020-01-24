@@ -5,22 +5,23 @@
 # on va modéliser le score par un tableau de dictionnaires
 # une ligne => un jouer, puis pour le dictionnaire, clé/valeur <=> adversaire/state
 
-
 var _results= []
 var _total_players
 
-func _init(total_players):
-	self._total_players= total_players
+
+func _init():
+	self._total_players= Global.get_total_players()
 	# intialisation du tableau de score
-	for i in range (total_players):
+	for i in range (_total_players):
 		self._results.append({})
 	print("Tableau de score créé vide pour ",_total_players," players")
+
 
 func exist_result(id1, id2):
 	if _results[id1].has(id2):	return true
 	else: 						return false
-	
 
+# création du tableau d'états : 0 = non joué, 1 → id1 gagne, 2 → id2 gagne
 func set_result(player_id, opponent_id, state):
 	if state == 0:
 		_results[player_id].erase(opponent_id)
@@ -32,6 +33,9 @@ func set_result(player_id, opponent_id, state):
 		_results[player_id][opponent_id]= 2
 		_results[opponent_id][player_id]= 1
 	print("player_id:",player_id, ", opponent_id:", opponent_id, ", state:", state)
+	
+	# tableau modifié et non sauvegardé
+	Global.is_saved= false
 
 
 func get_result(player_id, opponent_id):

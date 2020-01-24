@@ -11,8 +11,12 @@ config_version=3
 [application]
 
 config/name="Tournoi"
-run/main_scene="res://accueil_cli.tscn"
+run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://Global.gd"
 
 [debug]
 
@@ -20,7 +24,7 @@ settings/fps/force_fps=10
 
 [display]
 
-window/size/width=700
-window/size/height=400
+window/size/width=800
+window/size/height=500
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"

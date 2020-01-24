@@ -1,0 +1,396 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://new_parameters.gd" type="Script" id=1]
+[ext_resource path="res://assets/new_menu/label_titre.png" type="Texture" id=2]
+[ext_resource path="res://assets/new_menu/label_saveAs.png" type="Texture" id=3]
+[ext_resource path="res://assets/new_menu/label_name.png" type="Texture" id=4]
+[ext_resource path="res://assets/new_menu/label_playersNb.png" type="Texture" id=5]
+[ext_resource path="res://assets/new_menu/label_less.png" type="Texture" id=6]
+[ext_resource path="res://assets/fonts/impact.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/new_menu/label_more.png" type="Texture" id=8]
+[ext_resource path="res://assets/new_menu/label_valid.png" type="Texture" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 70
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 7 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="MarginContainer" type="MarginContainer"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/margin_right = 60
+custom_constants/margin_top = 40
+custom_constants/margin_left = 60
+custom_constants/margin_bottom = 40
+script = ExtResource( 1 )
+_sections_unfolded = [ "custom_constants" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 60.0
+margin_top = 40.0
+margin_right = 740.0
+margin_bottom = 460.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="TextureRect_title" type="TextureRect" parent="VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 680.0
+margin_bottom = 61.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 65.0
+margin_right = 680.0
+margin_bottom = 420.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 557.0
+margin_bottom = 355.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="Container2" type="Container" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 557.0
+margin_bottom = 36.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="TextureRect_saveAs" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 40.0
+margin_right = 557.0
+margin_bottom = 90.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+stretch_mode = 0
+
+[node name="TextureRect_name" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 94.0
+margin_right = 557.0
+margin_bottom = 162.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 4 )
+stretch_mode = 0
+
+[node name="Container" type="Container" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 166.0
+margin_right = 557.0
+margin_bottom = 202.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="TextureRect_selectNumber" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 206.0
+margin_right = 557.0
+margin_bottom = 255.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 259.0
+margin_right = 557.0
+margin_bottom = 355.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 1
+
+[node name="less_btn" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 102.0
+margin_right = 198.0
+margin_bottom = 96.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 6 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="total_text" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 202.0
+margin_top = 5.0
+margin_right = 354.0
+margin_bottom = 91.0
+rect_min_size = Vector2( 152, 86 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "99"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Hint", "Rect", "Size Flags", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="more_btn" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 358.0
+margin_right = 454.0
+margin_bottom = 96.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 8 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 561.0
+margin_right = 680.0
+margin_bottom = 355.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 119.0
+margin_bottom = 114.0
+rect_min_size = Vector2( 20, 20 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+use_top_left = false
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="back_btn" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer2" index="1"]
+
+modulate = Color( 1, 0.132812, 0.132812, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 118.0
+margin_right = 119.0
+margin_bottom = 232.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 6 )
+expand = true
+stretch_mode = 3
+_sections_unfolded = [ "Material", "Size Flags", "Textures", "Visibility" ]
+
+[node name="ok_btn" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer2" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 236.0
+margin_right = 119.0
+margin_bottom = 355.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 9 )
+stretch_mode = 3
+_sections_unfolded = [ "Textures", "Theme" ]
+
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/less_btn" to="." method="_on_less_btn_mouse_entered"]
+
+[connection signal="mouse_exited" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/less_btn" to="." method="_on_less_btn_mouse_exited"]
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/less_btn" to="." method="_on_less_btn_pressed"]
+
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/more_btn" to="." method="_on_more_btn_mouse_entered"]
+
+[connection signal="mouse_exited" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/more_btn" to="." method="_on_more_btn_mouse_exited"]
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/more_btn" to="." method="_on_more_btn_pressed"]
+
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/VBoxContainer2/back_btn" to="." method="_on_back_btn_mouse_entered"]
+
+[connection signal="mouse_exited" from="VBoxContainer/HBoxContainer/VBoxContainer2/back_btn" to="." method="_on_back_btn_mouse_exited"]
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer2/back_btn" to="." method="_on_back_btn_pressed"]
+
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/VBoxContainer2/ok_btn" to="." method="_on_ok_btn_mouse_entered"]
+
+[connection signal="mouse_exited" from="VBoxContainer/HBoxContainer/VBoxContainer2/ok_btn" to="." method="_on_ok_btn_mouse_exited"]
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer2/ok_btn" to="." method="_on_ok_btn_pressed"]
+
+

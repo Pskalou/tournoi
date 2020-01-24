@@ -7,11 +7,11 @@ var _matrix= []
 var _total_players
 var _total_rounds
 
-func _init(total_players):
-	self._total_players= total_players
-	self._total_rounds= total_players-1
-	self._matrix= _game_matrix(total_players)
-	print("Partie créé avec ",total_players, " players")
+func _init():
+	self._total_players= Global.get_total_players()
+	self._total_rounds= _total_players-1
+	self._matrix= _game_matrix(_total_players)
+	print("Partie créé avec ",_total_players, " players")
 
 
 func get_total_players():

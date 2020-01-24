@@ -7,9 +7,9 @@ var _score
 var _round_buttons_list = []
 
 
-func _init(game, score):
-	self._game= game
-	self._score= score
+func _init():
+	self._game= Global.game
+	self._score= Global.score
 	print("Boutons du round créésiste de boutons créé")
 
 
@@ -28,11 +28,10 @@ func build(round_index, current_node):
 	entrée : le round concerné, le node dans lequel on va instancier les boutons
 	fonction retourne le tableau d'état d'un match pour un round bien précis
 	"""
-	
+	var total_players= Global.get_total_players()
 	# identifiants des 2 adversaires
 	var id1
 	var id2
-	var total_players= _game.get_total_players()
 	
 	# précharger un bouton 
 	var newMatch= load("res://vrac/bouton_participant.tscn")
@@ -75,6 +74,7 @@ func build(round_index, current_node):
 		# boucle suivante
 		pos += Vector2(0, 50)
 		i= i+1
+	
 	
 	# retourne le tableau de tous les boutons
 	return _round_buttons_list
