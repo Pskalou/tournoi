@@ -11,7 +11,7 @@ var _total_players
 
 func _init():
 	self._total_players= Global.get_total_players()
-	# intialisation du tableau de score
+	# intialisation du tableau de score	
 	for i in range (_total_players):
 		self._results.append({})
 	print("Tableau de score créé vide pour ",_total_players," players")
