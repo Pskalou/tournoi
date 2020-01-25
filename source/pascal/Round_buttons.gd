@@ -10,7 +10,7 @@ var _round_buttons_list = []
 func _init():
 	self._game= Global.game
 	self._score= Global.score
-	print("Boutons du round créésiste de boutons créé")
+	print("Boutons du round créé => liste de boutons créé")
 
 
 func kill():
