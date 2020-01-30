@@ -5,6 +5,13 @@ Dans le cadre du DU CCIE, les étudiants doivent participer à un projet.
 
 Nous avons décidé de créer une application multi plateforeme : **Tournoi**.
 
+* linux
+* android
+* windows
+* windows universal
+* iOS
+* html5
+
 ## Site du projet
 
 * https://pp.irem.univ-mrs.fr/projects/application-tournoi
