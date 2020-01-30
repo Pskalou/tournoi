@@ -12,6 +12,8 @@ Nous avons décidé de créer une application multi plateforeme : **Tournoi**.
 * iOS
 * HTML5
 
+et c'est tout !
+
 ## Site du projet
 
 * https://pp.irem.univ-mrs.fr/projects/application-tournoi
