@@ -3,7 +3,9 @@ projet maths info du DU CCIE 2019/2020
 
 Dans le cadre du DU CCIE, les étudiants doivent participer à un projet math-info
 
-Nous avons décidé de créer une application multi plateforeme : **Tournoi**.
+Nous avons décidé de créer une application multi plateforeme : **Tournoi**. 
+Nous exploitons pour cela le logiciel GODOT en convertissant le code source
+écrit en Python.
 
 * Linux
 * Android
