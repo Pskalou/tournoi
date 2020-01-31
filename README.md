@@ -1,5 +1,5 @@
 # Application Tournoi
-projet maths info du DU CCIE
+projet maths info du DU CCIE 2019/2020
 
 Dans le cadre du DU CCIE, les étudiants doivent participer à un projet.
 
