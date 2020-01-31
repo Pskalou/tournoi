@@ -1,9 +1,18 @@
 # Application Tournoi
 projet maths info du DU CCIE 2019/2020
 
-Dans le cadre du DU CCIE, les étudiants doivent participer à un projet.
+Dans le cadre du DU CCIE, les étudiants doivent participer à un projet math-info
 
 Nous avons décidé de créer une application multi plateforeme : **Tournoi**.
+
+* Linux
+* Android
+* Windows
+* Windows universal
+* iOS
+* HTML5
+
+et c'est tout !
 
 ## Site du projet
 
