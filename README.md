@@ -1,9 +1,20 @@
 # Application Tournoi
-projet maths info du DU CCIE
+projet maths info du DU CCIE 2019/2020
 
-Dans le cadre du DU CCIE, les étudiants doivent participer à un projet.
+Dans le cadre du DU CCIE, les étudiants doivent participer à un projet math-info
 
-Nous avons décidé de créer une application multi plateforeme : **Tournoi**.
+Nous avons décidé de créer une application multi plateforeme : **Tournoi**. 
+Nous exploitons pour cela le logiciel GODOT en convertissant le code source
+écrit en Python.
+
+* Linux
+* Android
+* Windows
+* Windows universal
+* iOS
+* HTML5
+
+et c'est tout !
 
 ## Site du projet
 
@@ -13,5 +24,5 @@ Nous avons décidé de créer une application multi plateforeme : **Tournoi**.
 ## Équipe
 
 * Pascal : [Pskalou](https://github.com/Pskalou)
-* Raphaël : [raphael-sellam](https://github.com/raphael-sellam)
-* Thomas :
+* Raphaël : [RaphaelSellam](https://github.com/RaphaelSellam)
+* Thomas : [t-lesage](https://github.com/t-lesage)
