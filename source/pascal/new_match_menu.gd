@@ -21,7 +21,7 @@ func _ready():
 
 func _alert():	
 	modulate= Color(1,1,1,0.25)
-	var alert= preload("res://pop_up_not_saved.tscn").instance()
+	var alert= preload("res://not_saved_pop_up_menu.tscn").instance()
 	Global.main.add_child(alert)
 
 func _on_ok_btn_pressed():
