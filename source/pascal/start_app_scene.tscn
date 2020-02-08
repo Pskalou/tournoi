@@ -12,3 +12,6 @@ custom_constants/margin_top = 60
 custom_constants/margin_left = 60
 custom_constants/margin_bottom = 60
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
