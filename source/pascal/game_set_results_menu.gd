@@ -19,7 +19,7 @@ var round_index_node
 var right_column_contains_node
 
 # classes et variables gestion du jeu
-var Game
+var Game_generator
 var Score
 
 # classes et instances pour les listes de boutons
@@ -30,7 +30,7 @@ var round_buttons_list
 func init():
 	round_index=0
 	# nouveau jeu et nouveau score
-	Global.game = Game.new()
+	Global.game = Game_generator.new()
 	Global.score= Score.new()
 	# vider les anciens boutons et créer les nouveaux
 	Global.round_buttons.kill()
@@ -51,8 +51,8 @@ func _ready():
 	right_column_contains_node= $MarginContainer/VBoxContainer/HBoxContainer/vboxTours/HBoxContainer/allTournoi
 	
 	# classe qui gère la répartition des matchss et son instance
-	Game= preload("res://Game.gd")
-	Global.game = Game.new()
+	Game_generator= preload("res://Game_generator.gd")
+	Global.game = Game_generator.new()
 	
 	# classe qui gère le score et son instance
 	Score= preload("res://Score.gd")
