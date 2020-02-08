@@ -23,7 +23,7 @@ func _on_new_btn_pressed():
 	# afficheer la page paramètres
 	Global.accueil_menu.visible= false
 	Global.new_match_menu.visible= true
-	Global.tournoi.visible= false
+	Global.game_set_results_menu.visible= false
 	
 	Global.new_match_menu.modulate= Color(1,1,1,1)
 

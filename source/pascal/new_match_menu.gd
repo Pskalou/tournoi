@@ -27,12 +27,12 @@ func _alert():
 func _on_ok_btn_pressed():
 	Global.accueil_menu.visible= false
 	Global.new_match_menu.visible= false
-	Global.tournoi.visible= true
+	Global.game_set_results_menu.visible= true
 
 func _on_back_btn_pressed():
 	Global.accueil_menu.visible= true
 	Global.new_match_menu.visible= false
-	Global.tournoi.visible= false
+	Global.game_set_results_menu.visible= false
 
 
 func _on_more_btn_pressed():	
@@ -45,13 +45,13 @@ func _on_more_btn_pressed():
 		return null
 
 	var total_players= Global.get_total_players()
-	var tournoi= Global.tournoi
+	var game_set_results_menu= Global.game_set_results_menu
 	
 	total_players += 1
 	
 	# réinitialise le tournoi
 	Global.set_total_players(total_players)
-	tournoi.init()
+	game_set_results_menu.init()
 	
 	# update affichage
 	total_text.set_text(str(total_players))
@@ -68,7 +68,7 @@ func _on_less_btn_pressed():
 		return null
 
 	var total_players= Global.get_total_players()
-	var tournoi= Global.tournoi
+	var game_set_results_menu= Global.game_set_results_menu
 	
 	# clause de garde
 	if total_players == 2: return null
@@ -79,11 +79,11 @@ func _on_less_btn_pressed():
 	if total_players % 2 == 0:
 			maxi= total_players - 2
 	else: 	maxi= total_players - 1
-	tournoi.round_index= min(maxi,tournoi.round_index)
+	game_set_results_menu.round_index= min(maxi,game_set_results_menu.round_index)
 	
 	# réinitialise le tournoi
 	Global.set_total_players(total_players)
-	tournoi.init()
+	game_set_results_menu.init()
 	
 	# update affichage
 	total_text.set_text(str(total_players))
