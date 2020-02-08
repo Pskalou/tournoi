@@ -34,7 +34,7 @@ func build(round_index, current_node):
 	var id2
 	
 	# précharger un bouton 
-	var newMatch= load("res://bouton_participant.tscn")
+	var newMatch= load("res://duel_button.tscn")
 	
 	# vecteur utilisé pour la translation entre 2 boutons
 	var pos= Vector2(0,0)
