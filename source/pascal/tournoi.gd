@@ -1,5 +1,9 @@
-# fichier qui centralise tout le code
-# il est lancé en 1er et c'est lui qui appelle les autres classes
+# script lié à la scène tournoi.tscn
+#
+# met en place l'interface permettant 
+# de modifier les scores tours par tours
+
+
 
 extends Control
 
@@ -66,7 +70,7 @@ func _ready():
 # interface bouton retour
 func _on_back_btn_pressed():
 	Global.accueil.visible= true
-	Global.new_parameters.visible= false
+	Global.new_match_menu.visible= false
 	Global.tournoi.visible= false
 
 

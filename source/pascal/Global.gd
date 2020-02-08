@@ -15,7 +15,7 @@ var main
 
 # instanciation des scènes
 var accueil= preload("res://accueil.tscn").instance()
-var new_parameters= preload("res://new_parameters.tscn").instance()
+var new_match_menu= preload("res://new_match_menu.tscn").instance()
 var tournoi= preload("res://tournoi.tscn").instance()
 
 

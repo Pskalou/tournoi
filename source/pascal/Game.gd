@@ -1,4 +1,4 @@
-# Class Matrix.gd
+# Class Game.gd
 # gère la répartition des matchs, tour par tour, adversaire par adversaire
 # utilise l'algorithme python du notebook
 

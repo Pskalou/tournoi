@@ -22,10 +22,10 @@ func _on_new_btn_pressed():
 	# cacher accueil / tournoi
 	# afficheer la page paramètres
 	Global.accueil.visible= false
-	Global.new_parameters.visible= true
+	Global.new_match_menu.visible= true
 	Global.tournoi.visible= false
 	
-	Global.new_parameters.modulate= Color(1,1,1,1)
+	Global.new_match_menu.modulate= Color(1,1,1,1)
 
 
 # survol des boutons
