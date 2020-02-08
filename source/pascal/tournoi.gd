@@ -69,7 +69,7 @@ func _ready():
 
 # interface bouton retour
 func _on_back_btn_pressed():
-	Global.accueil.visible= true
+	Global.accueil_menu.visible= true
 	Global.new_match_menu.visible= false
 	Global.tournoi.visible= false
 

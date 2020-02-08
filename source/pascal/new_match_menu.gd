@@ -25,12 +25,12 @@ func _alert():
 	Global.main.add_child(alert)
 
 func _on_ok_btn_pressed():
-	Global.accueil.visible= false
+	Global.accueil_menu.visible= false
 	Global.new_match_menu.visible= false
 	Global.tournoi.visible= true
 
 func _on_back_btn_pressed():
-	Global.accueil.visible= true
+	Global.accueil_menu.visible= true
 	Global.new_match_menu.visible= false
 	Global.tournoi.visible= false
 

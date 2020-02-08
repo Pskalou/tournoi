@@ -14,7 +14,7 @@ var round_buttons_list
 var main
 
 # instanciation des scènes
-var accueil= preload("res://accueil.tscn").instance()
+var accueil_menu= preload("res://accueil_menu.tscn").instance()
 var new_match_menu= preload("res://new_match_menu.tscn").instance()
 var tournoi= preload("res://tournoi.tscn").instance()
 
