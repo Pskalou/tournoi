@@ -5,19 +5,17 @@ extends Control
 #  * historique
 #  * options
 
-# variables privées : les éléments de la scènes qui serviront de bouton
-var _history_btn	:TextureButton
-var _new_btn		:TextureButton
-var _options_btn	:TextureButton
+
+# initialisation des nodes de la scène qui serviront de bouton
+onready var _history_btn=	$MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/history_btn
+onready var _new_btn= 		$MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/new_btn
+onready var _options_btn=	$MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/options_btn
 
 
 func _ready():
-	# initialisation des variables privées vers les sprites de la scène
-	_history_btn= $MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/history_btn	
-	_new_btn= $MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/new_btn
-	_options_btn= $MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/options_btn
+	pass
 
-
+	
 func _on_new_btn_pressed() -> void:
 	# Signal qui va détecter un clic sur le bouton nouveau tournoi
 
