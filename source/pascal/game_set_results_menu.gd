@@ -128,7 +128,8 @@ func update_round_index_text():
 	round_index_node.set_text(texte)
 
 
-# fonction exécutée automatique tous les changements d'images
+	
 func _process(delta):
+	# actualisation toutes les fps pour mettre à jour le tableau
 	update_displays ()
 	pass
