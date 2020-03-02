@@ -3,8 +3,15 @@ class_name Score_manager
 # l'état est ensuite converti en score 
 
 
-# on va modéliser le score par un tableau de dictionnaires
-# une ligne => un jouer, puis pour le dictionnaire, clé/valeur <=> adversaire/state
+# définition des barêmes par défaut
+# pour passer des états (states) au score affiché
+var win_points = 10
+var lose_points= 5
+var no_point   = 0
+
+
+# l'état du tournoi sera représenté par un tableau de {}
+# une ligne => un joueur_id, puis pour le dictionnaire, clé/valeur <=> adversaire/state
 var _results= []
 
 var _total_players:int
@@ -56,12 +63,8 @@ func get_result(player_id:int, opponent_id:int) -> int:
 	return _results[player_id][opponent_id]
 
 
-var win_points = 10
-var lose_points= 5
-var no_point   = 0
-
-
-func score_en_texte():
+func score_en_texte() -> String:
+	# retourne le tableau des scores en texte
 	var total
 	var state
 	var score_array= []
