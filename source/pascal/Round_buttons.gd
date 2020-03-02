@@ -1,9 +1,12 @@
-# Class Round_buttons
-# affiche la liste des boutons
+class_name Round_buttons
+# pour un round bien précis, affiche et gère les boutons de duels
+# La classe Round_buttons fait le lien entre les clics et le score
 
 
 var _game
 var _score
+
+# liste de tous les boutons de duels du round en cours
 var _round_buttons_list = []
 
 
@@ -14,27 +17,24 @@ func _init():
 
 
 func kill():
-	"""
-	Fonction utilisée pour vider le tableau d'objets
-	elle permet d'effacer de l'écran les anciens boutons
-	"""
+	# Fonction utilisée pour vider le tableau d'objets
+	#  => supprime tous les anciens boutons
 	while _round_buttons_list:
 		_round_buttons_list.pop_back().queue_free()
 
 
-
-func build(round_index, current_node):
-	"""
-	entrée : le round concerné, le node dans lequel on va instancier les boutons
-	fonction retourne le tableau d'état d'un match pour un round bien précis
-	"""
+func build(round_index:int, current_node:Node) -> Array:
+	# Crée l'ensemble des boutons pour un round donné
+	# entrée : round_index : le round concerné
+	#     	   current_node: le node dans lequel on va instancier les boutons
+	# sortie : tableau de tous les boutons
 	var total_players= Global.get_total_players()
 	# identifiants des 2 adversaires
 	var id1
 	var id2
 	
 	# précharger un bouton 
-	var newMatch= load("res://duel_button.tscn")
+	var _duel_button= load("res://duel_button.tscn")
 	
 	# vecteur utilisé pour la translation entre 2 boutons
 	var pos= Vector2(0,0)
@@ -56,7 +56,7 @@ func build(round_index, current_node):
 		else:			players_list.erase(id2)
 		
 		# création des instances des boutons
-		_round_buttons_list.append(newMatch.instance())
+		_round_buttons_list.append(_duel_button.instance())
 		current_match= _round_buttons_list[i]
 		
 		_round_buttons_list[i].player_id= id1
@@ -69,7 +69,7 @@ func build(round_index, current_node):
 		current_node.add_child(_round_buttons_list[i])
 		
 		# mise en place du signal lors d'un clic sur le bouton
-		_round_buttons_list[i].connect("is_pressed", self, "changement_resultat_handler")
+		_round_buttons_list[i].connect("is_pressed", self, "_changement_resultat_handler")
 		
 		# boucle suivante
 		pos += Vector2(0, 50)
@@ -80,6 +80,6 @@ func build(round_index, current_node):
 	return _round_buttons_list
 
 
-func changement_resultat_handler(id1, id2, state):
+func _changement_resultat_handler(id1:int, id2:int, state:int) -> void:
 	# mise à jour du tableau de resultats
 	_score.set_result(id1,id2,state)

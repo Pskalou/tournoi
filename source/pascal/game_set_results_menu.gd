@@ -22,7 +22,6 @@ var right_column_contains_node
 var Game_generator
 
 # classes et instances pour les listes de boutons
-var Round_buttons
 var round_buttons_list
 
 
@@ -57,7 +56,6 @@ func _ready():
 	Global.score= Score_manager.new()
 	
 	# afficher les n/2 couples de boutons 	
-	Round_buttons= preload("res://Round_buttons.gd")
 	Global.round_buttons  = Round_buttons.new()
 	round_buttons_list= Global.round_buttons.build(round_index, right_column_contains_node)
 

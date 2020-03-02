@@ -10,11 +10,17 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Reference",
+"class": "Round_buttons",
+"language": "GDScript",
+"path": "res://Round_buttons.gd"
+}, {
+"base": "Reference",
 "class": "Score_manager",
 "language": "GDScript",
 "path": "res://Score_manager.gd"
 } ]
 _global_script_class_icons={
+"Round_buttons": "",
 "Score_manager": ""
 }
 
