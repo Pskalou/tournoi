@@ -18,8 +18,6 @@ var total_players_text_node
 var round_index_node
 var right_column_contains_node
 
-# classes et variables gestion du jeu
-var Game_generator
 
 # classes et instances pour les listes de boutons
 var round_buttons_list
@@ -49,7 +47,6 @@ func _ready():
 	right_column_contains_node= $MarginContainer/VBoxContainer/HBoxContainer/vboxTours/HBoxContainer/allTournoi
 	
 	# classe qui gère la répartition des matchss et son instance
-	Game_generator= preload("res://Game_generator.gd")
 	Global.game = Game_generator.new()
 	
 	# classe qui gère le score et son instance

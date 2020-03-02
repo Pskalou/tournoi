@@ -1,3 +1,4 @@
+class_name Game_generator
 # Class Game.gd
 # gère la répartition des matchs, tour par tour, adversaire par adversaire
 # utilise l'algorithme python du notebook
@@ -7,6 +8,7 @@ var _matrix= []
 var _total_players
 var _total_rounds
 
+
 func _init():
 	self._total_players= Global.get_total_players()
 	self._total_rounds= _total_players-1
@@ -14,16 +16,15 @@ func _init():
 	print("Partie créé avec ",_total_players, " players")
 
 
-func get_total_players():
-	return _total_players
-
-func opponent(player, round_index):
-	"""
-	retourne l'adversaire de 'player' lors du tour 'round_index'
-	"""
-	if (round_index > _total_rounds || player > _total_players) : return null
+func opponent(player_id:int, round_index:int) -> int:
+	# retourne l'adversaire de 'player_id' lors du tour 'round_index'
+	# si pas d'adversaire (tour impair par exemple), retourne -1
+	assert(round_index <= _total_rounds )
+	assert( player_id  <= _total_players)
+	# if (round_index > _total_rounds || player_id > _total_players) : return null
 	for i in range(_total_players):
-		if _matrix[player][i]==round_index: return i
+		if _matrix[player_id][i]==round_index: return i
+	return -1
 
 
 func _empty_matrix (n):

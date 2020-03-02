@@ -52,7 +52,7 @@ func build(round_index:int, current_node:Node) -> Array:
 		id2= _game.opponent(id1, round_index)
 		
 		# clause de garde si pas d'adversaire
-		if id2 == null:	continue
+		if id2 == -1:	continue
 		else:			players_list.erase(id2)
 		
 		# création des instances des boutons
