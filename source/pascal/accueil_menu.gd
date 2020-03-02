@@ -6,23 +6,23 @@ extends Control
 #  * options
 
 # variables privées : les éléments de la scènes qui serviront de bouton
-var _history_btn
-var new_btn
-var options_btn
+var _history_btn	:TextureButton
+var _new_btn		:TextureButton
+var _options_btn	:TextureButton
 
 
 func _ready():
 	# initialisation des variables privées vers les sprites de la scène
 	_history_btn= $MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/history_btn	
-	new_btn= $MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/new_btn
-	options_btn= $MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/options_btn
+	_new_btn= $MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/new_btn
+	_options_btn= $MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/options_btn
 
 
-func _on_new_btn_pressed():
+func _on_new_btn_pressed() -> void:
 	# Signal qui va détecter un clic sur le bouton nouveau tournoi
 
 	# supprimer transparence bouton (méthode globale définie dans Global.gd)
-	Global.button_init(new_btn)
+	Global.button_init(_new_btn)
 	
 	# cacher 	menu accueil & menu tournoi
 	# afficher	menu paramètres
@@ -34,32 +34,31 @@ func _on_new_btn_pressed():
 	# Global.new_match_menu.modulate= Color(1,1,1,1)
 
 
-
-func _on_new_btn_mouse_entered():
+func _on_new_btn_mouse_entered() 	-> void:
 	# effet de survol du bouton "nouveau tournoi" au passage de la souris
-	Global.button_hover(new_btn)
+	Global.button_hover(_new_btn)
 
 
-func _on_new_btn_mouse_exited():
+func _on_new_btn_mouse_exited() 	-> void:
 	# effet de survol du bouton "nouveau tournoi" au passage de la souris
-	Global.button_init(new_btn)
+	Global.button_init(_new_btn)
 
 
-func _on_history_btn_mouse_entered():
+func _on_history_btn_mouse_entered()-> void:
 	# effet de survol du bouton "historique" au passage de la souris
 	Global.button_hover(_history_btn)
 
 
-func _on_history_btn_mouse_exited():
+func _on_history_btn_mouse_exited()	-> void:
 	# effet de survol du bouton "historique" au passage de la souris
 	Global.button_init(_history_btn)
 
 
-func _on_options_btn_mouse_entered():
+func _on_options_btn_mouse_entered()-> void:
 	# effet de survol du bouton "option" au passage de la souris
-	Global.button_hover(options_btn)
+	Global.button_hover(_options_btn)
 
 
-func _on_options_btn_mouse_exited():
+func _on_options_btn_mouse_exited()	-> void:
 	# effet de survol du bouton "option" au passage de la souris
-	Global.button_init(options_btn)
+	Global.button_init(_options_btn)
