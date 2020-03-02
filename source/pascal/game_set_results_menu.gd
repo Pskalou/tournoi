@@ -20,7 +20,6 @@ var right_column_contains_node
 
 # classes et variables gestion du jeu
 var Game_generator
-var Score_manager
 
 # classes et instances pour les listes de boutons
 var Round_buttons
@@ -55,7 +54,6 @@ func _ready():
 	Global.game = Game_generator.new()
 	
 	# classe qui gère le score et son instance
-	Score_manager= preload("res://Score_manager.gd")
 	Global.score= Score_manager.new()
 	
 	# afficher les n/2 couples de boutons 	

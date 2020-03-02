@@ -1,28 +1,36 @@
-# Class Score.gd
-# gère le score
+class_name Score_manager
+# classe qui gère l'état du tournoi actuel
+# l'état est ensuite converti en score 
 
 
 # on va modéliser le score par un tableau de dictionnaires
 # une ligne => un jouer, puis pour le dictionnaire, clé/valeur <=> adversaire/state
-
 var _results= []
-var _total_players
+
+var _total_players:int
 
 
 func _init():
 	self._total_players= Global.get_total_players()
-	# intialisation du tableau de score	
+	# intialisation du tableau de score	avec des dictionnaires vides
 	for _i in range (_total_players):
 		self._results.append({})
 	print("Tableau de score créé vide pour ",_total_players," players")
 
 
-func exist_result(id1, id2):
+func exist_result(id1:int, id2:int) -> bool:
+	# retourne vrai si les joueurs id1 et id2 se sont affrontés
+
 	if _results[id1].has(id2):	return true
 	else: 						return false
 
-# création du tableau d'états : 0 = non joué, 1 → id1 gagne, 2 → id2 gagne
-func set_result(player_id, opponent_id, state):
+
+func set_result(player_id:int, opponent_id:int, state:int) -> void:
+	# indiquer le résultat du match entre le player_id et son adversaire opponent_id
+	#  state : 0 => non joué
+	#  state : 1 => player gagne
+	#  state : 2 => player perd
+
 	if state == 0:
 		_results[player_id].erase(opponent_id)
 		_results[opponent_id].erase(player_id)
@@ -38,7 +46,11 @@ func set_result(player_id, opponent_id, state):
 	Global.is_saved= false
 
 
-func get_result(player_id, opponent_id):
+func get_result(player_id:int, opponent_id:int) -> int:
+	# retourne l'état du match entre player_id et opponent_id
+	#  -> 0 : match non joué
+	#  -> 1 : player_id gagne
+	#  -> 2 : player_id perd
 	if player_id > _total_players: return 0
 	if ! _results[player_id].has(opponent_id): return 0
 	return _results[player_id][opponent_id]

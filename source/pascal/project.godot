@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Reference",
+"class": "Score_manager",
+"language": "GDScript",
+"path": "res://Score_manager.gd"
+} ]
 _global_script_class_icons={
-
+"Score_manager": ""
 }
 
 [application]
