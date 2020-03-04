@@ -14,7 +14,6 @@ Nous exploitons pour cela le logiciel GODOT en convertissant le code source
 * iOS
 * HTML5
 
-et c'est tout !
 
 ## Site du projet
 
@@ -26,5 +25,3 @@ et c'est tout !
 * Pascal : [Pskalou](https://github.com/Pskalou)
 * Raphaël : [RaphaelSellam](https://github.com/RaphaelSellam)
 * Thomas : [t-lesage](https://github.com/t-lesage)
-
-test
