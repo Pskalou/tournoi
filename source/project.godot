@@ -12,17 +12,17 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "Game_generator",
 "language": "GDScript",
-"path": "res://Game_generator.gd"
+"path": "res://src/Game_generator.gd"
 }, {
 "base": "Reference",
 "class": "Round_buttons",
 "language": "GDScript",
-"path": "res://Round_buttons.gd"
+"path": "res://src/Round_buttons.gd"
 }, {
 "base": "Reference",
 "class": "Score_manager",
 "language": "GDScript",
-"path": "res://Score_manager.gd"
+"path": "res://src/Score_manager.gd"
 } ]
 _global_script_class_icons={
 "Game_generator": "",
@@ -38,7 +38,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Global="*res://Global.gd"
+Global="*res://src/Global.gd"
 
 [debug]
 
