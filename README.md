@@ -13,7 +13,7 @@ Nous exploitons pour cela le logiciel GODOT en convertissant le code source
 * Windows universal
 * iOS
 * HTML5
-
+* LaTeX
 
 ## Site du projet
 

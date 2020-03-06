@@ -1,0 +1,156 @@
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[a4paper,
+    left=2cm,
+    right=2cm,
+    top=2cm,
+    bottom=2cm,
+    footskip=33pt,
+    headheight=33pt,
+    headsep=0pt
+    % includefoot
+    ]{geometry}
+%\usepackage[a4paper,margin=2cm,bottom=2cm,top=2cm,footskip=3em,includefoot]{geometry}%,landscape
+\usepackage{amsmath,amsfonts,mathrsfs,amssymb,amsthm}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{parskip}% http://ctan.org/pkg/parskip
+%\usepackage{array}
+\usepackage[export]{adjustbox} %pour alignement includegraphics
+
+
+
+%%Couleurs et URL
+\usepackage{xcolor}
+\definecolor{deepblue}{rgb}{0.3,0.3,0.8}
+\definecolor{darkblue}{rgb}{0,0,0.3}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{iremred}{RGB}{204,35,50}%% ROUGE IREM
+\definecolor{deepgreen}{rgb}{0,0.6,0}
+\definecolor{backcolor}{rgb}{0.98,0.95,0.95}
+\definecolor{gris}{rgb}{0.91,0.91,0.91}
+\definecolor{grisClair}{rgb}{0.95,0.95,0.95}
+\definecolor{bleuamu}{RGB}{20,118,198}
+\definecolor{cyanamu}{RGB}{77,198,244}
+\definecolor{noiramu}{RGB}{35,31,32}
+\definecolor{orangeamu}{RGB}{250,178,11} %original
+\definecolor{blocBase}{RGB}{30,144,255} %makeCode blocs "Base"
+\definecolor{blocBoucle}{RGB}{0,170,0}
+\definecolor{blocLogique}{RGB}{0,164,166}
+\definecolor{blocVariable}{RGB}{220,20,60}
+\definecolor{blocMaths}{RGB}{148,0,211}
+\definecolor{blocEntrees}{RGB}{212,0,212}
+\definecolor{blocFonctions}{RGB}{52,85,219}
+\definecolor{blocRadio}{RGB}{227,0,140}
+\usepackage[colorlinks=true, allcolors=deepred]{hyperref}
+
+%% pour utiliser les dingbat il faut dédéfinir \checkmark
+\let\checkmark\undefined
+\usepackage{dingbat}
+
+%% itemize perso
+\usepackage{enumitem}
+
+%%
+\usepackage{calc}
+
+%%% Language
+%\usepackage[english]{babel}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\usepackage[french]{babel}
+
+%python
+\usepackage{minted}
+%\usemintedstyle{native}
+
+\newmintedfile[pyfichier]{python}{
+bgcolor=grisClair,
+}
+
+
+\newcommand{\pyline}[1]{
+    {\mintinline[bgcolor=grisClair]{python}{#1}}
+}
+
+
+
+\newcommand{\pylineGrand}[1]{
+%{\Large\mintinline[bgcolor=grisClair]{python}{#1}}
+{\Large\mintinline{python}{#1}}
+}
+\newcommand{\pyfile}[3]{
+    %\vspace{-0.5em}
+    \pyfichier[firstline=#1,lastline=#2]{#3}
+    \vspace{-2em}
+}
+
+
+%pour ajouter au besoin les espaces après les commandes persos
+\usepackage{xspace}
+
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{avant}
+%\usepackage{lmodern}
+
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\labelenumi}{{\textbf{\arabic{enumi}})}}
+\renewcommand{\labelenumii}{{\textbf{\alph{enumii}}.}} %--
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+
+%smiley
+\usepackage{wasysym}
+
+
+
+\usepackage{colortbl}
+
+
+
+
+
+% Images & flottantes
+\usepackage{graphicx}
+\usepackage{wrapfig} 	%images encadrées
+\intextsep=0cm			%image à la même hauteur que le texte
+
+
+% numérotation des sections
+%     et table des matières
+\setcounter{secnumdepth}{0}
+\setcounter{tocdepth}{2}
+
+
+% style de notes
+\renewcommand{\thefootnote}{\arabic{footnote}}
+
+
+%
+%   personnaliser les titres/soustitres
+\usepackage{sectsty}
+\sectionfont{
+    \sectionrule{1ex}{0pt}{0ex}{0pt} %un peu plus d'espace
+    \centering\Huge\color{noiramu}} %couleur et centré
+\subsectionfont{%
+    \sectionrule{0.5ex}{0pt}{0ex}{0pt} %un peu plus d'espace
+    \sf\bfseries\LARGE\color{orangeamu}\scshape}
+\subsubsectionfont{\large\color{bleuamu}}
+% espace entre les titres
+
+
+
+%   modification de \emph (qui permet de mettre en évidence du texte)
+
+\let\emph\relax % there's no \RedeclareTextFontCommand
+\DeclareTextFontCommand{\emph}{\em\normalfont\color{bleuamu}}
+
+%
+%   document non justifié mais aligné à gauche
+
+\usepackage[document]{ragged2e}
