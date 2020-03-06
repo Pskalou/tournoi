@@ -1,0 +1,1587 @@
+{
+  "name": "Tournoi",
+  "description": "",
+  "version": null,
+  "classes": [
+    {
+      "name": "",
+      "path": "res://src/start_app_scene.gd",
+      "extends_class": [
+        "MarginContainer"
+      ],
+      "extends_file": "",
+      "icon": "",
+      "signature": "class start_app_scene.gd",
+      "description": "",
+      "sub_classes": [
+
+      ],
+      "constants": [
+
+      ],
+      "members": [
+
+      ],
+      "signals": [
+
+      ],
+      "methods": [
+        {
+          "name": "_ready",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _ready()",
+          "description": "",
+          "arguments": [
+
+          ]
+        }
+      ],
+      "static_functions": [
+
+      ]
+    },
+    {
+      "name": "",
+      "path": "res://src/not_saved_pop_up_menu.gd",
+      "extends_class": [
+        "MarginContainer"
+      ],
+      "extends_file": "",
+      "icon": "",
+      "signature": "class not_saved_pop_up_menu.gd",
+      "description": " script lié à la scène pop_up_not_saved.tscn\n\n affichage d'une alerte si le tournoi en cours n'est pas sauvegardé\n",
+      "sub_classes": [
+
+      ],
+      "constants": [
+
+      ],
+      "members": [
+
+      ],
+      "signals": [
+
+      ],
+      "methods": [
+        {
+          "name": "_ready",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _ready()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_confirm_btn_pressed",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_confirm_btn_pressed()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_undo_btn_pressed",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_undo_btn_pressed()",
+          "description": "",
+          "arguments": [
+
+          ]
+        }
+      ],
+      "static_functions": [
+
+      ]
+    },
+    {
+      "name": "",
+      "path": "res://src/Global.gd",
+      "extends_class": [
+        "Node"
+      ],
+      "extends_file": "",
+      "icon": "",
+      "signature": "class Global.gd",
+      "description": " Classe globale chargée automatiquement lors du lancement de l'application \n cette classe est globale (cf menu Projet > Paramètres du projet... > Autoload)\n car nous avons coché le design pattern \"Singleton\"\n",
+      "sub_classes": [
+
+      ],
+      "constants": [
+
+      ],
+      "members": [
+        {
+          "name": "_total_players",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var _total_players",
+          "description": " paramètres par défaut lors du lancement de l'application\n"
+        },
+        {
+          "name": "is_saved",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var is_saved",
+          "description": ""
+        },
+        {
+          "name": "game",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var game",
+          "description": " lors d'un tournoi, game référence une instance de GameGenerator => algorithme de répartition des matchs\n"
+        },
+        {
+          "name": "score",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var score",
+          "description": " lors d'un tournoi, score référence une instance de ScoreManager => gestion du score\n"
+        },
+        {
+          "name": "round_buttons",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var round_buttons",
+          "description": " référence une instance de Round_buttons\n => pour un tour donné (round) contient et gère les duel_boutons\n => modifie l'état instantané du tournoi en fonction des clics\n"
+        },
+        {
+          "name": "round_buttons_list",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var round_buttons_list",
+          "description": " tableau qui contient, pour un tour donné, la liste des duel_boutons\n"
+        },
+        {
+          "name": "main",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var main",
+          "description": " définition du node racine qui va contenir toute les scènes de l'application\n"
+        },
+        {
+          "name": "accueil_menu",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var accueil_menu",
+          "description": " instanciation des scènes\n chaque scène est donc présente pendant l'application,\n mais toutes ne sont pas visibles en même temps\n"
+        },
+        {
+          "name": "new_match_menu",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var new_match_menu",
+          "description": ""
+        },
+        {
+          "name": "game_set_results_menu",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var game_set_results_menu",
+          "description": ""
+        }
+      ],
+      "signals": [
+
+      ],
+      "methods": [
+        {
+          "name": "set_total_players",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func set_total_players(nombre_de_joueurs)",
+          "description": "",
+          "arguments": [
+            {
+              "name": "nombre_de_joueurs",
+              "type": "var"
+            }
+          ]
+        },
+        {
+          "name": "get_total_players",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func get_total_players()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "button_hover",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func button_hover(button)",
+          "description": "",
+          "arguments": [
+            {
+              "name": "button",
+              "type": "var"
+            }
+          ]
+        },
+        {
+          "name": "button_init",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func button_init(button)",
+          "description": "",
+          "arguments": [
+            {
+              "name": "button",
+              "type": "var"
+            }
+          ]
+        }
+      ],
+      "static_functions": [
+
+      ]
+    },
+    {
+      "name": "Game_generator",
+      "path": "res://src/Game_generator.gd",
+      "extends_class": [
+
+      ],
+      "extends_file": "",
+      "icon": "",
+      "signature": "class Game_generator",
+      "description": " Cette classe à en charge la gestion de la répartition des matchs. \n\n Pour chaque tour, l'algorithme génère la liste des matchs.\n\n En notant n le nombre de participant, le modèle de donné utilisé est une matrice carrée M de dimension n.\n Pour deux participants d'identifiants les nombres entiers i et ,\n M(i,j) est égal au tour durant lequel les participants i et j se rencontrent.\n",
+      "sub_classes": [
+
+      ],
+      "constants": [
+
+      ],
+      "members": [
+        {
+          "name": "_matrix",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var _matrix",
+          "description": ""
+        },
+        {
+          "name": "_total_players",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var _total_players",
+          "description": ""
+        },
+        {
+          "name": "_total_rounds",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var _total_rounds",
+          "description": ""
+        }
+      ],
+      "signals": [
+
+      ],
+      "methods": [
+        {
+          "name": "_init",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _init()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "opponent",
+          "return_type": "int",
+          "rpc_mode": 0,
+          "signature": "func opponent(player_id: int, round_index: int) -> int",
+          "description": " Retourne l'identifiant de l'adversaire de 'player_id' lors du tour 'round_index'.\n S'il n'y a pas d'adversaire (tour impair par exemple), la méthode retourne -1.\n",
+          "arguments": [
+            {
+              "name": "player_id",
+              "type": "int"
+            },
+            {
+              "name": "round_index",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "name": "_empty_matrix",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _empty_matrix(n)",
+          "description": "",
+          "arguments": [
+            {
+              "name": "n",
+              "type": "var"
+            }
+          ]
+        },
+        {
+          "name": "_even_matrix",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _even_matrix(n)",
+          "description": "",
+          "arguments": [
+            {
+              "name": "n",
+              "type": "var"
+            }
+          ]
+        },
+        {
+          "name": "_odd_matrix",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _odd_matrix(n)",
+          "description": "",
+          "arguments": [
+            {
+              "name": "n",
+              "type": "var"
+            }
+          ]
+        },
+        {
+          "name": "_game_matrix",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _game_matrix(n)",
+          "description": "",
+          "arguments": [
+            {
+              "name": "n",
+              "type": "var"
+            }
+          ]
+        }
+      ],
+      "static_functions": [
+
+      ]
+    },
+    {
+      "name": "",
+      "path": "res://src/game_set_results_menu.gd",
+      "extends_class": [
+        "Control"
+      ],
+      "extends_file": "",
+      "icon": "",
+      "signature": "class game_set_results_menu.gd",
+      "description": " script lié à la scène tournoi.tscn\n\n met en place l'interface permettant \n de modifier les scores tours par tours\n",
+      "sub_classes": [
+
+      ],
+      "constants": [
+
+      ],
+      "members": [
+        {
+          "name": "round_index",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var round_index",
+          "description": " état initial jeu, \n valeurs par défaut au cas où...\n"
+        },
+        {
+          "name": "total_players",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var total_players",
+          "description": ""
+        },
+        {
+          "name": "left_column_text_node",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var left_column_text_node",
+          "description": " conteneur de textes et objets\n"
+        },
+        {
+          "name": "total_players_text_node",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var total_players_text_node",
+          "description": ""
+        },
+        {
+          "name": "round_index_node",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var round_index_node",
+          "description": ""
+        },
+        {
+          "name": "right_column_contains_node",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var right_column_contains_node",
+          "description": ""
+        },
+        {
+          "name": "round_buttons_list",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var round_buttons_list",
+          "description": " classes et instances pour les listes de boutons\n"
+        }
+      ],
+      "signals": [
+
+      ],
+      "methods": [
+        {
+          "name": "init",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func init()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_ready",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _ready()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_back_btn_pressed",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_back_btn_pressed()",
+          "description": " interface bouton retour\n",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_next_btn_pressed",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_next_btn_pressed()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_previous_btn_pressed",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_previous_btn_pressed()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "update_displays",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func update_displays()",
+          "description": " Gestion  des affichages\n",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "update_rounds_text",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func update_rounds_text()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "update_round_index_text",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func update_round_index_text()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_process",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _process(delta)",
+          "description": "",
+          "arguments": [
+            {
+              "name": "delta",
+              "type": "var"
+            }
+          ]
+        }
+      ],
+      "static_functions": [
+
+      ]
+    },
+    {
+      "name": "Round_buttons",
+      "path": "res://src/Round_buttons.gd",
+      "extends_class": [
+
+      ],
+      "extends_file": "",
+      "icon": "",
+      "signature": "class Round_buttons",
+      "description": " Cette classe a en charge la création et la gestion les boutons de duels.\n Elle fait le lien entre les clics et le score.\n",
+      "sub_classes": [
+
+      ],
+      "constants": [
+
+      ],
+      "members": [
+        {
+          "name": "_game",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var _game",
+          "description": ""
+        },
+        {
+          "name": "_score",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var _score",
+          "description": ""
+        },
+        {
+          "name": "_round_buttons_list",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var _round_buttons_list",
+          "description": " liste de tous les boutons de duels du round en cours\n"
+        }
+      ],
+      "signals": [
+
+      ],
+      "methods": [
+        {
+          "name": "_init",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _init()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "kill",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func kill()",
+          "description": " Fonction utilisée pour vider le tableau d'objets.\n Supprime tous les anciens boutons.\n",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "build",
+          "return_type": "Array",
+          "rpc_mode": 0,
+          "signature": "func build(round_index: int, current_node: Node) -> Array",
+          "description": " Crée l'ensemble des boutons pour un round donné\n\n entrée : \n\n * round_index : le round concerné\n * current_node: le node dans lequel on va instancier les boutons\n\n sortie :\n\n * tableau de tous les boutons\n",
+          "arguments": [
+            {
+              "name": "round_index",
+              "type": "int"
+            },
+            {
+              "name": "current_node",
+              "type": "Node"
+            }
+          ]
+        },
+        {
+          "name": "_changement_resultat_handler",
+          "return_type": "null",
+          "rpc_mode": 0,
+          "signature": "func _changement_resultat_handler(id1: int, id2: int, state: int) -> null",
+          "description": "",
+          "arguments": [
+            {
+              "name": "id1",
+              "type": "int"
+            },
+            {
+              "name": "id2",
+              "type": "int"
+            },
+            {
+              "name": "state",
+              "type": "int"
+            }
+          ]
+        }
+      ],
+      "static_functions": [
+
+      ]
+    },
+    {
+      "name": "Score_manager",
+      "path": "res://src/Score_manager.gd",
+      "extends_class": [
+
+      ],
+      "extends_file": "",
+      "icon": "",
+      "signature": "class Score_manager",
+      "description": " Cette classe gère l'état du tournoi actuel. \n Dans un second temps, l'état est converti en score.\n",
+      "sub_classes": [
+
+      ],
+      "constants": [
+
+      ],
+      "members": [
+        {
+          "name": "win_points",
+          "data_type": "int",
+          "default_value": 10,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var win_points: int = 10",
+          "description": " Barême pour une victoire.\n Par défaut égal à 10\n\n TODO : privatiser la propriété (set/get)\n"
+        },
+        {
+          "name": "lose_points",
+          "data_type": "int",
+          "default_value": 5,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var lose_points: int = 5",
+          "description": " Barême pour une défaite.\n Par défaut égal à 5 car nous souhaitons valoriser la participation à un match.\n\n TODO : privatiser la propriété (set/get)\n"
+        },
+        {
+          "name": "no_point",
+          "data_type": "int",
+          "default_value": 0,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var no_point: int = 0",
+          "description": " Barême pour une absence de math.\n Par défaut égal à 0.\n\n TODO : privatiser la propriété (set/get)\n"
+        },
+        {
+          "name": "_results",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var _results",
+          "description": " l'état du tournoi sera représenté par un tableau de {}\n une ligne => un joueur_id, puis pour le dictionnaire, clé/valeur <=> adversaire/state\n"
+        },
+        {
+          "name": "_total_players",
+          "data_type": "int",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var _total_players: int",
+          "description": ""
+        }
+      ],
+      "signals": [
+
+      ],
+      "methods": [
+        {
+          "name": "_init",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _init()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "exist_result",
+          "return_type": "bool",
+          "rpc_mode": 0,
+          "signature": "func exist_result(id1: int, id2: int) -> bool",
+          "description": " Cette méthode permet de savoir si un match a eu lieu.\n Retourne vrai si les joueurs id1 et id2 se sont affrontés\n",
+          "arguments": [
+            {
+              "name": "id1",
+              "type": "int"
+            },
+            {
+              "name": "id2",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "name": "set_result",
+          "return_type": "null",
+          "rpc_mode": 0,
+          "signature": "func set_result(player_id: int, opponent_id: int, state: int) -> null",
+          "description": " Défini l'état d'un match entre player_id et son adversaire opponent_id.\n \n * state : 0 => non joué\n * state : 1 => player_id gagne\n * state : 2 => player_id perd\n\n TODO : les états 0/1/2 doivent être internes à la classe.\n Les autres classes n'ont pas à connaître ce fonctionnement.\n",
+          "arguments": [
+            {
+              "name": "player_id",
+              "type": "int"
+            },
+            {
+              "name": "opponent_id",
+              "type": "int"
+            },
+            {
+              "name": "state",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "name": "get_result",
+          "return_type": "int",
+          "rpc_mode": 0,
+          "signature": "func get_result(player_id: int, opponent_id: int) -> int",
+          "description": " Retourne l'état d'un match entre player_id et son adversaire opponent_id.\n \n * retourne : 0 => non joué\n * retourne : 1 => player gagne\n * retourne : 2 => player perd\n\n TODO : les états 0/1/2 doivent être internes à la classe.\n TODO : utiliser des prédicats ? retourner uniquement les scores  ?\n",
+          "arguments": [
+            {
+              "name": "player_id",
+              "type": "int"
+            },
+            {
+              "name": "opponent_id",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "name": "score_en_texte",
+          "return_type": "String",
+          "rpc_mode": 0,
+          "signature": "func score_en_texte() -> String",
+          "description": " Transforme le tableau des états en score en utilisant le barême.\n\n TODO : version CLI à passer en GUI\n",
+          "arguments": [
+
+          ]
+        }
+      ],
+      "static_functions": [
+
+      ]
+    },
+    {
+      "name": "",
+      "path": "res://src/pointsVictoire.gd",
+      "extends_class": [
+        "MarginContainer"
+      ],
+      "extends_file": "",
+      "icon": "",
+      "signature": "class pointsVictoire.gd",
+      "description": " Page en construction - Menu \"Points pour une Victoire\"\n",
+      "sub_classes": [
+
+      ],
+      "constants": [
+
+      ],
+      "members": [
+        {
+          "name": "more_btn",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var more_btn",
+          "description": ""
+        },
+        {
+          "name": "less_btn",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var less_btn",
+          "description": ""
+        },
+        {
+          "name": "back_btn",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var back_btn",
+          "description": ""
+        },
+        {
+          "name": "ok_btn",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var ok_btn",
+          "description": ""
+        },
+        {
+          "name": "total_text",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var total_text",
+          "description": ""
+        }
+      ],
+      "signals": [
+
+      ],
+      "methods": [
+        {
+          "name": "_ready",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _ready()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_alert",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _alert()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_ok_btn_pressed",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_ok_btn_pressed()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_back_btn_pressed",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_back_btn_pressed()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_more_btn_pressed",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_more_btn_pressed()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_less_btn_pressed",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_less_btn_pressed()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_more_btn_mouse_entered",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_more_btn_mouse_entered()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_more_btn_mouse_exited",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_more_btn_mouse_exited()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_less_btn_mouse_entered",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_less_btn_mouse_entered()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_less_btn_mouse_exited",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_less_btn_mouse_exited()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_ok_btn_mouse_entered",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_ok_btn_mouse_entered()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_ok_btn_mouse_exited",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_ok_btn_mouse_exited()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_back_btn_mouse_entered",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_back_btn_mouse_entered()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_back_btn_mouse_exited",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_back_btn_mouse_exited()",
+          "description": "",
+          "arguments": [
+
+          ]
+        }
+      ],
+      "static_functions": [
+
+      ]
+    },
+    {
+      "name": "",
+      "path": "res://src/new_match_menu.gd",
+      "extends_class": [
+        "MarginContainer"
+      ],
+      "extends_file": "",
+      "icon": "",
+      "signature": "class new_match_menu.gd",
+      "description": "",
+      "sub_classes": [
+
+      ],
+      "constants": [
+
+      ],
+      "members": [
+        {
+          "name": "more_btn",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var more_btn",
+          "description": ""
+        },
+        {
+          "name": "less_btn",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var less_btn",
+          "description": ""
+        },
+        {
+          "name": "back_btn",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var back_btn",
+          "description": ""
+        },
+        {
+          "name": "ok_btn",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var ok_btn",
+          "description": ""
+        },
+        {
+          "name": "total_text",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var total_text",
+          "description": ""
+        }
+      ],
+      "signals": [
+
+      ],
+      "methods": [
+        {
+          "name": "_ready",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _ready()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_alert",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _alert()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_ok_btn_pressed",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_ok_btn_pressed()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_back_btn_pressed",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_back_btn_pressed()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_more_btn_pressed",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_more_btn_pressed()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_less_btn_pressed",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_less_btn_pressed()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_more_btn_mouse_entered",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_more_btn_mouse_entered()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_more_btn_mouse_exited",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_more_btn_mouse_exited()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_less_btn_mouse_entered",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_less_btn_mouse_entered()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_less_btn_mouse_exited",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_less_btn_mouse_exited()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_ok_btn_mouse_entered",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_ok_btn_mouse_entered()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_ok_btn_mouse_exited",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_ok_btn_mouse_exited()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_back_btn_mouse_entered",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_back_btn_mouse_entered()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_back_btn_mouse_exited",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_back_btn_mouse_exited()",
+          "description": "",
+          "arguments": [
+
+          ]
+        }
+      ],
+      "static_functions": [
+
+      ]
+    },
+    {
+      "name": "",
+      "path": "res://src/accueil_menu.gd",
+      "extends_class": [
+        "Control"
+      ],
+      "extends_file": "",
+      "icon": "",
+      "signature": "class accueil_menu.gd",
+      "description": "",
+      "sub_classes": [
+
+      ],
+      "constants": [
+
+      ],
+      "members": [
+        {
+          "name": "_history_btn",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var _history_btn",
+          "description": " initialisation des nodes de la scène qui serviront de bouton\n"
+        },
+        {
+          "name": "_new_btn",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var _new_btn",
+          "description": ""
+        },
+        {
+          "name": "_options_btn",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var _options_btn",
+          "description": ""
+        }
+      ],
+      "signals": [
+
+      ],
+      "methods": [
+        {
+          "name": "_ready",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _ready()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_new_btn_pressed",
+          "return_type": "null",
+          "rpc_mode": 0,
+          "signature": "func _on_new_btn_pressed() -> null",
+          "description": " Signal qui va détecter un clic sur le bouton nouveau tournoi\n",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_new_btn_mouse_entered",
+          "return_type": "null",
+          "rpc_mode": 0,
+          "signature": "func _on_new_btn_mouse_entered() -> null",
+          "description": " effet de survol du bouton \"nouveau tournoi\" au passage de la souris\n",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_new_btn_mouse_exited",
+          "return_type": "null",
+          "rpc_mode": 0,
+          "signature": "func _on_new_btn_mouse_exited() -> null",
+          "description": " effet de survol du bouton \"nouveau tournoi\" au passage de la souris\n",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_history_btn_mouse_entered",
+          "return_type": "null",
+          "rpc_mode": 0,
+          "signature": "func _on_history_btn_mouse_entered() -> null",
+          "description": " effet de survol du bouton \"historique\" au passage de la souris\n",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_history_btn_mouse_exited",
+          "return_type": "null",
+          "rpc_mode": 0,
+          "signature": "func _on_history_btn_mouse_exited() -> null",
+          "description": " effet de survol du bouton \"historique\" au passage de la souris\n",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_options_btn_mouse_entered",
+          "return_type": "null",
+          "rpc_mode": 0,
+          "signature": "func _on_options_btn_mouse_entered() -> null",
+          "description": " effet de survol du bouton \"option\" au passage de la souris\n",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_options_btn_mouse_exited",
+          "return_type": "null",
+          "rpc_mode": 0,
+          "signature": "func _on_options_btn_mouse_exited() -> null",
+          "description": " effet de survol du bouton \"option\" au passage de la souris\n",
+          "arguments": [
+
+          ]
+        }
+      ],
+      "static_functions": [
+
+      ]
+    },
+    {
+      "name": "",
+      "path": "res://src/duel_button.gd",
+      "extends_class": [
+        "TextureButton"
+      ],
+      "extends_file": "",
+      "icon": "",
+      "signature": "class duel_button.gd",
+      "description": " script associé à la scène bouton_participant\n affiche 2 \"boutons\" liés entres eux par la couleur\n",
+      "sub_classes": [
+
+      ],
+      "constants": [
+
+      ],
+      "members": [
+        {
+          "name": "lost_color",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var lost_color",
+          "description": " 3 couleurs\n"
+        },
+        {
+          "name": "win_color",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var win_color",
+          "description": ""
+        },
+        {
+          "name": "neutral_color",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var neutral_color",
+          "description": ""
+        },
+        {
+          "name": "state",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var state",
+          "description": " 3 états : 0 match nul, 1 je gagne, 2 je pers\n"
+        },
+        {
+          "name": "player_id",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var player_id",
+          "description": " valeurs par défaut (id et label)\n"
+        },
+        {
+          "name": "me_name",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var me_name",
+          "description": ""
+        },
+        {
+          "name": "opponent_id",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var opponent_id",
+          "description": ""
+        },
+        {
+          "name": "opponent_name",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var opponent_name",
+          "description": ""
+        }
+      ],
+      "signals": [
+        {
+          "name": "is_pressed",
+          "arguments": [
+
+          ],
+          "signature": "signal is_pressed()",
+          "description": ""
+        }
+      ],
+      "methods": [
+        {
+          "name": "_ready",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _ready()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "update_color",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func update_color()",
+          "description": "",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_on_clic_pressed",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _on_clic_pressed()",
+          "description": "",
+          "arguments": [
+
+          ]
+        }
+      ],
+      "static_functions": [
+
+      ]
+    }
+  ]
+}
