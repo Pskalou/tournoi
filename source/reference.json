@@ -1440,15 +1440,15 @@
       ]
     },
     {
-      "name": "",
+      "name": "Duel_button",
       "path": "res://src/duel_button.gd",
       "extends_class": [
         "TextureButton"
       ],
       "extends_file": "",
       "icon": "",
-      "signature": "class duel_button.gd",
-      "description": " script associé à la scène bouton_participant\n affiche 2 \"boutons\" liés entres eux par la couleur\n",
+      "signature": "class Duel_button",
+      "description": " Classe associée à la scène `duel_button.tscn`.\n\n Affiche 2 boutons associés à 2 adversaires : le _player_id et son _opponent_id. \n Un clic sur les boutons modifie l'état du match (`_state`) en fonction de la victoire, défaite ou non joué.\n\n L'information se transmet via les signaux.\n",
       "sub_classes": [
 
       ],
@@ -1457,83 +1457,83 @@
       ],
       "members": [
         {
-          "name": "lost_color",
+          "name": "_lost_color",
           "data_type": "var",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var lost_color",
+          "signature": "var _lost_color",
           "description": " 3 couleurs\n"
         },
         {
-          "name": "win_color",
+          "name": "_win_color",
           "data_type": "var",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var win_color",
+          "signature": "var _win_color",
           "description": ""
         },
         {
-          "name": "neutral_color",
+          "name": "_neutral_color",
           "data_type": "var",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var neutral_color",
+          "signature": "var _neutral_color",
           "description": ""
         },
         {
-          "name": "state",
+          "name": "_state",
           "data_type": "var",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var state",
+          "signature": "var _state",
           "description": " 3 états : 0 match nul, 1 je gagne, 2 je pers\n"
         },
         {
-          "name": "player_id",
+          "name": "_player_id",
           "data_type": "var",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var player_id",
+          "signature": "var _player_id",
           "description": " valeurs par défaut (id et label)\n"
         },
         {
-          "name": "me_name",
+          "name": "_me_name",
           "data_type": "var",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var me_name",
+          "signature": "var _me_name",
           "description": ""
         },
         {
-          "name": "opponent_id",
+          "name": "_opponent_id",
           "data_type": "var",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var opponent_id",
+          "signature": "var _opponent_id",
           "description": ""
         },
         {
-          "name": "opponent_name",
+          "name": "_opponent_name",
           "data_type": "var",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var opponent_name",
+          "signature": "var _opponent_name",
           "description": ""
         }
       ],
@@ -1549,6 +1549,36 @@
       ],
       "methods": [
         {
+          "name": "set_state",
+          "return_type": "null",
+          "rpc_mode": 0,
+          "signature": "func set_state(new_state: int) -> null",
+          "description": " Défini le nouvel état dans le match opposant player_id et opponent_id. \n\n * 0 : non joué\n * 1 : player_id gagne\n * 2 : player_id perd\n",
+          "arguments": [
+            {
+              "name": "new_state",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "name": "initialisation",
+          "return_type": "null",
+          "rpc_mode": 0,
+          "signature": "func initialisation(player_id: int, opponent_id: int) -> null",
+          "description": " Initialise l'instance de duel_button avec les identifiants :\n\n * player_id : joueur de référence\n * opponent_id : adversaire\n",
+          "arguments": [
+            {
+              "name": "player_id",
+              "type": "int"
+            },
+            {
+              "name": "opponent_id",
+              "type": "int"
+            }
+          ]
+        },
+        {
           "name": "_ready",
           "return_type": "var",
           "rpc_mode": 0,
@@ -1559,10 +1589,10 @@
           ]
         },
         {
-          "name": "update_color",
+          "name": "_update_color",
           "return_type": "var",
           "rpc_mode": 0,
-          "signature": "func update_color()",
+          "signature": "func _update_color()",
           "description": "",
           "arguments": [
 
