@@ -48,7 +48,7 @@ func build(round_index:int, current_node:Node) -> Array:
 	# liste de id des joueurs (0 à n-1)
 	var players_list= range(total_players)
 	var i= 0
-	var current_match
+	var current_match: Duel_button
 	
 	# tant qu'il y a des couples de joueurs
 	# créer un bouton entre un joueur (id1) et (s'il existe) son adversaire (id2)
@@ -61,21 +61,20 @@ func build(round_index:int, current_node:Node) -> Array:
 		if id2 == -1:	continue
 		else:			players_list.erase(id2)
 		
-		# création des instances des boutons
-		_round_buttons_list.append(_duel_button.instance())
-		current_match= _round_buttons_list[i]
+		# création d'une instance de duel_button
+		current_match= _duel_button.instance()
+		_round_buttons_list.append(current_match)
 		
-		_round_buttons_list[i].player_id= id1
-		_round_buttons_list[i].opponent_id= id2
-		# initialisation des états
-		_round_buttons_list[i].state= _score.get_result(id1, id2)
-		# initialisation de la position
+		# initialisation du duel_button : identifiants, état sauvegardé et position
+		current_match.initialisation(id1 , id2)
+		current_match.set_state(_score.get_result(id1, id2))
 		current_match.rect_position= pos 
+
 		# affichage de l'instance
-		current_node.add_child(_round_buttons_list[i])
+		current_node.add_child(current_match)
 		
 		# mise en place du signal lors d'un clic sur le bouton
-		_round_buttons_list[i].connect("is_pressed", self, "_changement_resultat_handler")
+		current_match.connect("is_pressed", self, "_changement_resultat_handler")
 		
 		# boucle suivante
 		pos += Vector2(0, 50)
