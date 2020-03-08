@@ -78,3 +78,4 @@ if ! test -d "$output_directory"; then mkdir -v "$output_directory"; fi
 python3 -m gdscript_docs_maker "$godot_project_dir/reference.json" 
 
 mv export/* "$output_directory"
+rm export/.*
