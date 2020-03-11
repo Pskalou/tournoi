@@ -33,7 +33,7 @@ var win_points: int = 10
 ```
 
 Barême pour une victoire.
-Par défaut égal à 10
+Par défaut égal à 10. (Les points pour une victoire sont paramètrables dans le menu "options")
 
 TODO : privatiser la propriété (set/get)
 
@@ -43,7 +43,7 @@ TODO : privatiser la propriété (set/get)
 var lose_points: int = 5
 ```
 
-Barême pour une défaite.
+Barême pour une défaite. (Les points pour une victoire sont paramètrables dans le menu "options")
 Par défaut égal à 5 car nous souhaitons valoriser la participation à un match.
 
 TODO : privatiser la propriété (set/get)
@@ -54,7 +54,7 @@ TODO : privatiser la propriété (set/get)
 var no_point: int = 0
 ```
 
-Barême pour une absence de math.
+Barême pour une absence de match.
 Par défaut égal à 0.
 
 TODO : privatiser la propriété (set/get)
@@ -68,7 +68,7 @@ func exist_result(id1: int, id2: int) -> bool
 ```
 
 Cette méthode permet de savoir si un match a eu lieu.
-Retourne vrai si les joueurs id1 et id2 se sont affrontés
+Retourne vrai si les joueurs id1 et id2 se sont affrontés.
 
 ### set\_result ###
 
