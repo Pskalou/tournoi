@@ -24,5 +24,13 @@ LaTeX/*.aux
 LaTeX/*.fls
 LaTeX/*.fdb*
 
+# Lualatex ignore (utilisé pour importer du .md
+LaTeX/*.in
+LaTeX/*.lua
+LaTeX/*.md.tex 
+LaTeX/_markdown_*
+LaTeX/*.err
+
+
 # PDF compilés
 # LaTeX/*.pdf
