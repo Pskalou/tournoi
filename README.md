@@ -12,12 +12,13 @@ Nous exploitons pour cela le logiciel GODOT en convertissant le code source
 * Windows
 * Windows universal
 * iOS
-* HTML5
+* [HTML5](https://pskalou.github.io/tournoi/source/exports/html/Tournoi_html5.html)
 * LaTeX
 
 ## Site du projet
 
 * https://pp.irem.univ-mrs.fr/projects/application-tournoi
+
 
 
 ## Équipe
