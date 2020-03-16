@@ -10,8 +10,8 @@ source/export_presets.cfg
 data_*/
 
 # gdscript-docs-maker
-gdscript_docs_maker/__pycache__/*.pyc
-gdscript_docs_maker/modules/__pycache__/*.pyc
+gdscript_docs_maker/gdscript_docs_maker/__pycache__/
+gdscript_docs_maker/gdscript_docs_maker/modules/__pycache__/
 
 
 # LaTeX ignores
