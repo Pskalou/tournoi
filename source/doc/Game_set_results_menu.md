@@ -6,7 +6,7 @@
 
 ## Description ##
 
-Script lié à la scène tournoi.tscn
+Script qui accompagne l'instanciation de la scène `game_set_results_menu.tscn`.
 
 Cette classe met en place l'interface permettant
 de modifier les scores tours par tours.
@@ -15,11 +15,23 @@ de modifier les scores tours par tours.
 
 Type | Name
  --- | --- 
+var | func init()
 int | func get_round_index() -> int
 void | func set_round_index(new_index: int) -> void
-var | func init()
 
 ## Method Descriptions ##
+
+### init ###
+
+```gdscript
+func init()
+```
+
+Initialise le tournoi en créant :
+
+* nouveau jeu
+* nouveau score
+* nouveau boutons du rounds (suppression des anciens et ajout des nouveaux)
 
 ### get\_round\_index ###
 
@@ -36,15 +48,3 @@ func set_round_index(new_index: int) -> void
 ```
 
 Setter qui définit l'index du round en cours.
-
-### init ###
-
-```gdscript
-func init()
-```
-
-Initialise le tournoi en créant :
-
-* nouveau jeu
-* nouveau score
-* nouveau boutons du rounds (suppression des anciens et ajout des nouveaux)
