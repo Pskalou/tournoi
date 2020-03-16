@@ -1,3 +1,7 @@
+# Script qui accompagne l'instanciation de la scène `new_match_menu.tscn`.
+#
+# Ce menu permet de configurer le futur tournoi (nombre de participants par exemple).
+class_name New_match_menu
 extends MarginContainer
 
 var _more_btn
