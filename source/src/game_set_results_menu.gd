@@ -7,19 +7,11 @@ class_name Game_set_results_menu
 
 extends Control
 
+
 # état initial jeu, 
 # valeurs par défaut au cas où...
 var _round_index= 0
 var _total_players
-
-# Getter qui retourne l'index du round en cours.
-func get_round_index() -> int:
-	return _round_index
-
-
-# Setter qui définit l'index du round en cours.
-func set_round_index(new_index:int) -> void:
-	_round_index= new_index
 
 
 # conteneur de textes et objets
@@ -50,6 +42,16 @@ func init():
 	Global.round_buttons_list= Global.round_buttons.build(_round_index, _right_column_contains_node)
 
 
+# Getter qui retourne l'index du round en cours.
+func get_round_index() -> int:
+	return _round_index
+
+
+# Setter qui définit l'index du round en cours.
+func set_round_index(new_index:int) -> void:
+	_round_index= new_index
+
+	
 func _ready():
 	# initialisation des variables
 	_round_index=0
