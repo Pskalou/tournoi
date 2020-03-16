@@ -1,3 +1,9 @@
+# Script qui accompagne l'instanciation de la scène `start_app_scene.tscn`.
+#
+# Point d'entrée de l'application. 
+# Cette classe instancie les scènes nécessaires à l'application.
+class_name Start_app_scene
+
 extends MarginContainer
 
 
