@@ -1,7 +1,7 @@
-# script lié à la scène pop_up_not_saved.tscn
+# Script lié à l'instanciation de la scène `Not_saved_pop_up_not_menu.tscn`.
 #
-# affichage d'une alerte si le tournoi en cours n'est pas sauvegardé
-
+# Affichage d'une alerte si le tournoi en cours n'est pas sauvegardé.
+class_name Not_saved_pop_up_not_menu
 
 extends MarginContainer
 
