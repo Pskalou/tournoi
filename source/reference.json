@@ -100,15 +100,15 @@
       ]
     },
     {
-      "name": "",
+      "name": "Global_",
       "path": "res://src/Global.gd",
       "extends_class": [
         "Node"
       ],
       "extends_file": "",
       "icon": "",
-      "signature": "class Global.gd",
-      "description": " Classe globale chargée automatiquement lors du lancement de l'application \n cette classe est globale (cf menu Projet > Paramètres du projet... > Autoload)\n car nous avons coché le design pattern \"Singleton\"\n",
+      "signature": "class Global_",
+      "description": " La Classe globale chargée automatiquement lors du lancement de l'application.\n Elle stocke les informations essentielles et nécessaires à toutes les classes.\n\n Cette classe est globale et utilise le principe Singleton de Godot.\n (cf menu `Projet > Paramètres du projet... > Autoload` et cocher le design pattern \"*Singleton*\")\n\n Le nom *GlobalClass* est utilisé uniquement pour générer la doc\n",
       "sub_classes": [
 
       ],
@@ -118,73 +118,73 @@
       "members": [
         {
           "name": "_total_players",
-          "data_type": "var",
-          "default_value": null,
+          "data_type": "int",
+          "default_value": 6,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var _total_players",
-          "description": " paramètres par défaut lors du lancement de l'application\n"
+          "signature": "var _total_players: int = 6",
+          "description": " attribut privé : nombre total de joueur (par défaut = 6)\n"
         },
         {
           "name": "is_saved",
-          "data_type": "var",
-          "default_value": null,
+          "data_type": "bool",
+          "default_value": true,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var is_saved",
-          "description": ""
+          "signature": "var is_saved: bool = true",
+          "description": " Cet attribut indique si le tournoi a été modifié depuis la dernière sauvegarde.\n Si un risque de perdre les résultats en cours, une fenêtre modale  apparaît\n et demande si on est sûr d'être certain.\n\n Valeur par défaut : True\n"
         },
         {
           "name": "game",
-          "data_type": "var",
+          "data_type": "Game_generator",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var game",
-          "description": " lors d'un tournoi, game référence une instance de GameGenerator => algorithme de répartition des matchs\n"
+          "signature": "var game: Game_generator",
+          "description": " L'attribut *game* référence une instance de `GameGenerator`.\n C'est le moyen de déterminer l'`adversaire_id` en fonction du `round` et de `player_id`.\n"
         },
         {
           "name": "score",
-          "data_type": "var",
+          "data_type": "Score_manager",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var score",
-          "description": " lors d'un tournoi, score référence une instance de ScoreManager => gestion du score\n"
+          "signature": "var score: Score_manager",
+          "description": " L'attribut `score` référence une instance de **ScoreManager**\n C'est la classe dédiée à la gestion du score.\n"
         },
         {
           "name": "round_buttons",
-          "data_type": "var",
+          "data_type": "Round_buttons",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var round_buttons",
-          "description": " référence une instance de Round_buttons\n => pour un tour donné (round) contient et gère les duel_boutons\n => modifie l'état instantané du tournoi en fonction des clics\n"
+          "signature": "var round_buttons: Round_buttons",
+          "description": " L'attribut `round_button` référence une instance de `Round_buttons` :\n\n * contient et gère les `duel_boutons` (pour chaque round)\n * modifie l'état instantané du tournoi en fonction des clics\n * est détruite (queue_free) puis réinstanciée pour chaque roud\n"
         },
         {
           "name": "round_buttons_list",
-          "data_type": "var",
+          "data_type": "Array",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var round_buttons_list",
-          "description": " tableau qui contient, pour un tour donné, la liste des duel_boutons\n"
+          "signature": "var round_buttons_list: Array",
+          "description": " Tableau de `int` qui contient, pour un tour donné, la liste des `duel_boutons`.\n"
         },
         {
           "name": "main",
-          "data_type": "var",
+          "data_type": "MarginContainer",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var main",
-          "description": " définition du node racine qui va contenir toute les scènes de l'application\n"
+          "signature": "var main: MarginContainer",
+          "description": " Node racine de l'application. Ce node va contenir toute les scènes de l'application.\n"
         },
         {
           "name": "accueil_menu",
@@ -194,7 +194,7 @@
           "getter": "",
           "export": false,
           "signature": "var accueil_menu",
-          "description": " instanciation des scènes\n chaque scène est donc présente pendant l'application,\n mais toutes ne sont pas visibles en même temps\n"
+          "description": " Instance de la scène menu d'accueil de l'application. Visible ou pas en fonction de l'interface souhaitée.\n"
         },
         {
           "name": "new_match_menu",
@@ -204,7 +204,7 @@
           "getter": "",
           "export": false,
           "signature": "var new_match_menu",
-          "description": ""
+          "description": " Instance de la scène menu de configuration d'un nouveau tournoi. Visible ou pas en fonction de l'interface souhaitée.\n"
         },
         {
           "name": "game_set_results_menu",
@@ -214,7 +214,7 @@
           "getter": "",
           "export": false,
           "signature": "var game_set_results_menu",
-          "description": ""
+          "description": " Instance de la scène qui affiche le tournoi, les boutons et le score en direct.\n Visible ou pas en fonction de l'interface souhaitée.\n"
         }
       ],
       "signals": [
@@ -223,37 +223,37 @@
       "methods": [
         {
           "name": "set_total_players",
-          "return_type": "var",
+          "return_type": "null",
           "rpc_mode": 0,
-          "signature": "func set_total_players(nombre_de_joueurs)",
-          "description": "",
+          "signature": "func set_total_players(nombre_de_joueurs: int) -> null",
+          "description": " Setter pour définir le nombre de joueurs dans le tournoi actuel.\n",
           "arguments": [
             {
               "name": "nombre_de_joueurs",
-              "type": "var"
+              "type": "int"
             }
           ]
         },
         {
           "name": "get_total_players",
-          "return_type": "var",
+          "return_type": "int",
           "rpc_mode": 0,
-          "signature": "func get_total_players()",
-          "description": "",
+          "signature": "func get_total_players() -> int",
+          "description": " Getter qui retourne le nombre de joueurs dans le tournoi actuel.\n",
           "arguments": [
 
           ]
         },
         {
           "name": "button_hover",
-          "return_type": "var",
+          "return_type": "null",
           "rpc_mode": 0,
-          "signature": "func button_hover(button)",
-          "description": "",
+          "signature": "func button_hover(button: TextureButton) -> null",
+          "description": " Méthode pour définir et homogénéiser l'ensemble des changement de style\n à appliquer lors du **survol d'un bouton** de type TextureButton.\n",
           "arguments": [
             {
               "name": "button",
-              "type": "var"
+              "type": "TextureButton"
             }
           ]
         },
@@ -262,7 +262,7 @@
           "return_type": "var",
           "rpc_mode": 0,
           "signature": "func button_init(button)",
-          "description": "",
+          "description": " Méthode pour définir et homogénéiser l'ensemble des changement de style\n à appliquer pour réinitialiser le bouton de type TextureButton (après un survol de la souris).\n",
           "arguments": [
             {
               "name": "button",
