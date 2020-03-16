@@ -1,10 +1,13 @@
-
+# Script qui accompagne l'instanciation de la scène `accueil_menu.gd`.
+# 
 # Menu d'accueil de l'application Tournoi
 # ce menu contient 3 sous menu
 #  * nouveau tournoi
 #  * historique
 #  * options
+class_name Accueil_menu
 extends Control
+
 
 # initialisation des nodes de la scène qui serviront de bouton
 onready var _history_btn=	$MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/history_btn

@@ -1,4 +1,4 @@
-# Script lié à la scène tournoi.tscn
+# Script qui accompagne l'instanciation de la scène `game_set_results_menu.tscn`.
 #
 # Cette classe met en place l'interface permettant 
 # de modifier les scores tours par tours.
@@ -51,7 +51,7 @@ func get_round_index() -> int:
 func set_round_index(new_index:int) -> void:
 	_round_index= new_index
 
-	
+
 func _ready():
 	# initialisation des variables
 	_round_index=0

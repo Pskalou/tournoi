@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Game_generator.gd"
 }, {
-"base": "Control",
-"class": "Game_set_results_menu",
-"language": "GDScript",
-"path": "res://src/game_set_results_menu.gd"
-}, {
 "base": "Node",
 "class": "Global_",
 "language": "GDScript",
@@ -42,7 +37,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Duel_button": "",
 "Game_generator": "",
-"Game_set_results_menu": "",
 "Global_": "",
 "Round_buttons": "",
 "Score_manager": ""
