@@ -1,30 +1,45 @@
-# script lié à la scène tournoi.tscn
+# Script lié à la scène tournoi.tscn
 #
-# met en place l'interface permettant 
-# de modifier les scores tours par tours
-
+# Cette classe met en place l'interface permettant 
+# de modifier les scores tours par tours.
+class_name Game_set_results_menu
 
 
 extends Control
 
 # état initial jeu, 
 # valeurs par défaut au cas où...
-var round_index= 0
-var total_players
+var _round_index= 0
+var _total_players
+
+# Getter qui retourne l'index du round en cours.
+func get_round_index() -> int:
+	return _round_index
+
+
+# Setter qui définit l'index du round en cours.
+func set_round_index(new_index:int) -> void:
+	_round_index= new_index
+
 
 # conteneur de textes et objets
-var left_column_text_node
-var total_players_text_node
-var round_index_node
-var right_column_contains_node
+var _left_column_text_node
+var _total_players_text_node
+var _round_index_node
+var _right_column_contains_node
 
 
 # classes et instances pour les listes de boutons
-var round_buttons_list
+var _round_buttons_list
 
 
+# Initialise le tournoi en créant :
+#
+# * nouveau jeu
+# * nouveau score
+# * nouveau boutons du rounds (suppression des anciens et ajout des nouveaux)
 func init():
-	round_index=0
+	_round_index=0
 	# nouveau jeu et nouveau score
 	Global.game = Game_generator.new()
 	Global.score= Score_manager.new()
@@ -32,19 +47,19 @@ func init():
 	Global.round_buttons.kill()
 	Global.round_buttons= Round_buttons.new()
 	# afficher les nouveaux boutons
-	Global.round_buttons_list= Global.round_buttons.build(round_index, right_column_contains_node)
+	Global.round_buttons_list= Global.round_buttons.build(_round_index, _right_column_contains_node)
 
 
 func _ready():
 	# initialisation des variables
-	round_index=0
-	total_players= Global.get_total_players()
+	_round_index=0
+	_total_players= Global.get_total_players()
 	
 	# initialisation des conteneurs
-	left_column_text_node= $MarginContainer/VBoxContainer/HBoxContainer/vboxTours/HBoxContainer/richlab_tour
-	round_index_node= $MarginContainer/VBoxContainer/HBoxContainer/vboxTours/hbox_tour/lab_tourIndex
-	right_column_contains_node= $MarginContainer/VBoxContainer/HBoxContainer/vboxTours/HBoxContainer/allTournoi
-	right_column_contains_node= $MarginContainer/VBoxContainer/HBoxContainer/vboxTours/HBoxContainer/allTournoi
+	_left_column_text_node= $MarginContainer/VBoxContainer/HBoxContainer/vboxTours/HBoxContainer/richlab_tour
+	_round_index_node= $MarginContainer/VBoxContainer/HBoxContainer/vboxTours/hbox_tour/lab_tourIndex
+	_right_column_contains_node= $MarginContainer/VBoxContainer/HBoxContainer/vboxTours/HBoxContainer/allTournoi
+	_right_column_contains_node= $MarginContainer/VBoxContainer/HBoxContainer/vboxTours/HBoxContainer/allTournoi
 	
 	# classe qui gère la répartition des matchss et son instance
 	Global.game = Game_generator.new()
@@ -54,10 +69,10 @@ func _ready():
 	
 	# afficher les n/2 couples de boutons 	
 	Global.round_buttons  = Round_buttons.new()
-	round_buttons_list= Global.round_buttons.build(round_index, right_column_contains_node)
+	_round_buttons_list= Global.round_buttons.build(_round_index, _right_column_contains_node)
 
 	# actualise affichages
-	update_displays()
+	_update_displays()
 
 
 # interface bouton retour
@@ -73,63 +88,60 @@ func _on_next_btn_pressed():
 	actualiser l'affichage
 	"""
 	var maxi
-	total_players= Global.get_total_players()
+	_total_players= Global.get_total_players()
 	
-	if total_players % 2 == 0:
-			maxi= total_players - 2
-	else: 	maxi= total_players - 1
+	if _total_players % 2 == 0:
+			maxi= _total_players - 2
+	else: 	maxi= _total_players - 1
 	
 	# clause de garde
-	if round_index == maxi : return null
+	if _round_index == maxi : return null
 	
-	round_index += 1
+	_round_index += 1
 	
 	# effacer anciens boutons et afficher les nouveaux
 	Global.round_buttons.kill()
-	round_buttons_list= Global.round_buttons.build(round_index, right_column_contains_node)
+	_round_buttons_list= Global.round_buttons.build(_round_index, _right_column_contains_node)
 	
-	update_displays()
+	_update_displays()
 
 
 func _on_previous_btn_pressed():
 	"""
 	matchs du round précédent et actualiser l'affichage
 	"""
-	if round_index == 0: return null
-	round_index -= 1
+	if _round_index == 0: return null
+	_round_index -= 1
 	
 	# effacer anciens boutons et afficher les nouveaux
 	Global.round_buttons.kill()
-	round_buttons_list= Global.round_buttons.build(round_index, right_column_contains_node)
+	_round_buttons_list= Global.round_buttons.build(_round_index, _right_column_contains_node)
 
-	update_displays()
+	_update_displays()
 
 
 # Gestion  des affichages
-func update_displays () :	
-	update_round_index_text()
-	update_rounds_text()
+func _update_displays () :	
+	_update__round_index_text()
+	_update_rounds_text()
 
 
-func update_rounds_text():
-	"""
-	actualiser le texte des scores
-	dans la colonne de gauche
-	"""
+# actualiser le texte des scores
+# dans la colonne de gauche
+func _update_rounds_text():
 	var texte= Global.score.score_en_texte()
-	left_column_text_node.set_text(texte)
+	_left_column_text_node.set_text(texte)
 
 
-func update_round_index_text():
+# actualiser le texte du n° du tour actuel
+func _update__round_index_text():
 	"""
-	actualiser le texte du n° du tour actuel
 	"""
-	var texte= "Tour n° %3s" % round_index
-	round_index_node.set_text(texte)
+	var texte= "Tour n° %3s" % _round_index
+	_round_index_node.set_text(texte)
 
 
-	
 func _process(delta):
 	# actualisation toutes les fps pour mettre à jour le tableau
-	update_displays ()
-	pass
+	_update_displays ()
+

@@ -79,7 +79,7 @@ func _on_less_btn_pressed():
 	if total_players % 2 == 0:
 			maxi= total_players - 2
 	else: 	maxi= total_players - 1
-	game_set_results_menu.round_index= min(maxi,game_set_results_menu.round_index)
+	game_set_results_menu.set_round_index(min(maxi,game_set_results_menu.get_round_index()))
 	
 	# réinitialise le tournoi
 	Global.set_total_players(total_players)

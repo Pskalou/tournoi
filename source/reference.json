@@ -412,15 +412,15 @@
       ]
     },
     {
-      "name": "",
+      "name": "Game_set_results_menu",
       "path": "res://src/game_set_results_menu.gd",
       "extends_class": [
         "Control"
       ],
       "extends_file": "",
       "icon": "",
-      "signature": "class game_set_results_menu.gd",
-      "description": " script lié à la scène tournoi.tscn\n\n met en place l'interface permettant \n de modifier les scores tours par tours\n",
+      "signature": "class Game_set_results_menu",
+      "description": " Script lié à la scène tournoi.tscn\n\n Cette classe met en place l'interface permettant \n de modifier les scores tours par tours.\n",
       "sub_classes": [
 
       ],
@@ -429,73 +429,73 @@
       ],
       "members": [
         {
-          "name": "round_index",
+          "name": "_round_index",
           "data_type": "var",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var round_index",
+          "signature": "var _round_index",
           "description": " état initial jeu, \n valeurs par défaut au cas où...\n"
         },
         {
-          "name": "total_players",
+          "name": "_total_players",
           "data_type": "var",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var total_players",
+          "signature": "var _total_players",
           "description": ""
         },
         {
-          "name": "left_column_text_node",
+          "name": "_left_column_text_node",
           "data_type": "var",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var left_column_text_node",
+          "signature": "var _left_column_text_node",
           "description": " conteneur de textes et objets\n"
         },
         {
-          "name": "total_players_text_node",
+          "name": "_total_players_text_node",
           "data_type": "var",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var total_players_text_node",
+          "signature": "var _total_players_text_node",
           "description": ""
         },
         {
-          "name": "round_index_node",
+          "name": "_round_index_node",
           "data_type": "var",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var round_index_node",
+          "signature": "var _round_index_node",
           "description": ""
         },
         {
-          "name": "right_column_contains_node",
+          "name": "_right_column_contains_node",
           "data_type": "var",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var right_column_contains_node",
+          "signature": "var _right_column_contains_node",
           "description": ""
         },
         {
-          "name": "round_buttons_list",
+          "name": "_round_buttons_list",
           "data_type": "var",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var round_buttons_list",
+          "signature": "var _round_buttons_list",
           "description": " classes et instances pour les listes de boutons\n"
         }
       ],
@@ -504,11 +504,34 @@
       ],
       "methods": [
         {
+          "name": "get_round_index",
+          "return_type": "int",
+          "rpc_mode": 0,
+          "signature": "func get_round_index() -> int",
+          "description": " Getter qui retourne l'index du round en cours.\n",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "set_round_index",
+          "return_type": "null",
+          "rpc_mode": 0,
+          "signature": "func set_round_index(new_index: int) -> null",
+          "description": " Setter qui définit l'index du round en cours.\n",
+          "arguments": [
+            {
+              "name": "new_index",
+              "type": "int"
+            }
+          ]
+        },
+        {
           "name": "init",
           "return_type": "var",
           "rpc_mode": 0,
           "signature": "func init()",
-          "description": "",
+          "description": " Initialise le tournoi en créant :\n\n * nouveau jeu\n * nouveau score\n * nouveau boutons du rounds (suppression des anciens et ajout des nouveaux)\n",
           "arguments": [
 
           ]
@@ -554,31 +577,31 @@
           ]
         },
         {
-          "name": "update_displays",
+          "name": "_update_displays",
           "return_type": "var",
           "rpc_mode": 0,
-          "signature": "func update_displays()",
+          "signature": "func _update_displays()",
           "description": " Gestion  des affichages\n",
           "arguments": [
 
           ]
         },
         {
-          "name": "update_rounds_text",
+          "name": "_update_rounds_text",
           "return_type": "var",
           "rpc_mode": 0,
-          "signature": "func update_rounds_text()",
-          "description": "",
+          "signature": "func _update_rounds_text()",
+          "description": " actualiser le texte des scores\n dans la colonne de gauche\n",
           "arguments": [
 
           ]
         },
         {
-          "name": "update_round_index_text",
+          "name": "_update__round_index_text",
           "return_type": "var",
           "rpc_mode": 0,
-          "signature": "func update_round_index_text()",
-          "description": "",
+          "signature": "func _update__round_index_text()",
+          "description": " actualiser le texte du n° du tour actuel\n",
           "arguments": [
 
           ]
