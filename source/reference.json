@@ -4,15 +4,15 @@
   "version": null,
   "classes": [
     {
-      "name": "",
+      "name": "Start_app_scene",
       "path": "res://src/start_app_scene.gd",
       "extends_class": [
         "MarginContainer"
       ],
       "extends_file": "",
       "icon": "",
-      "signature": "class start_app_scene.gd",
-      "description": "",
+      "signature": "class Start_app_scene",
+      "description": " Script qui accompagne l'instanciation de la scène `start_app_scene.tscn`.\n\n Point d'entrée de l'application. \n Cette classe instancie les scènes nécessaires à l'application.\n",
       "sub_classes": [
 
       ],
@@ -42,15 +42,15 @@
       ]
     },
     {
-      "name": "",
+      "name": "Not_saved_pop_up_not_menu",
       "path": "res://src/not_saved_pop_up_menu.gd",
       "extends_class": [
         "MarginContainer"
       ],
       "extends_file": "",
       "icon": "",
-      "signature": "class not_saved_pop_up_menu.gd",
-      "description": " script lié à la scène pop_up_not_saved.tscn\n\n affichage d'une alerte si le tournoi en cours n'est pas sauvegardé\n",
+      "signature": "class Not_saved_pop_up_not_menu",
+      "description": " Script lié à l'instanciation de la scène `Not_saved_pop_up_not_menu.tscn`.\n\n Affichage d'une alerte si le tournoi en cours n'est pas sauvegardé.\n",
       "sub_classes": [
 
       ],
@@ -420,7 +420,7 @@
       "extends_file": "",
       "icon": "",
       "signature": "class Game_set_results_menu",
-      "description": " Script lié à la scène tournoi.tscn\n\n Cette classe met en place l'interface permettant \n de modifier les scores tours par tours.\n",
+      "description": " Script qui accompagne l'instanciation de la scène `game_set_results_menu.tscn`.\n\n Cette classe met en place l'interface permettant \n de modifier les scores tours par tours.\n",
       "sub_classes": [
 
       ],
@@ -504,6 +504,16 @@
       ],
       "methods": [
         {
+          "name": "init",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func init()",
+          "description": " Initialise le tournoi en créant :\n\n * nouveau jeu\n * nouveau score\n * nouveau boutons du rounds (suppression des anciens et ajout des nouveaux)\n",
+          "arguments": [
+
+          ]
+        },
+        {
           "name": "get_round_index",
           "return_type": "int",
           "rpc_mode": 0,
@@ -524,16 +534,6 @@
               "name": "new_index",
               "type": "int"
             }
-          ]
-        },
-        {
-          "name": "init",
-          "return_type": "var",
-          "rpc_mode": 0,
-          "signature": "func init()",
-          "description": " Initialise le tournoi en créant :\n\n * nouveau jeu\n * nouveau score\n * nouveau boutons du rounds (suppression des anciens et ajout des nouveaux)\n",
-          "arguments": [
-
           ]
         },
         {
@@ -1109,15 +1109,15 @@
       ]
     },
     {
-      "name": "",
+      "name": "New_match_menu",
       "path": "res://src/new_match_menu.gd",
       "extends_class": [
         "MarginContainer"
       ],
       "extends_file": "",
       "icon": "",
-      "signature": "class new_match_menu.gd",
-      "description": "",
+      "signature": "class New_match_menu",
+      "description": " Script qui accompagne l'instanciation de la scène `new_match_menu.tscn`.\n\n Ce menu permet de configurer le futur tournoi (nombre de participants par exemple).\n",
       "sub_classes": [
 
       ],
@@ -1126,53 +1126,53 @@
       ],
       "members": [
         {
-          "name": "more_btn",
+          "name": "_more_btn",
           "data_type": "var",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var more_btn",
+          "signature": "var _more_btn",
           "description": ""
         },
         {
-          "name": "less_btn",
+          "name": "_less_btn",
           "data_type": "var",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var less_btn",
+          "signature": "var _less_btn",
           "description": ""
         },
         {
-          "name": "back_btn",
+          "name": "_back_btn",
           "data_type": "var",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var back_btn",
+          "signature": "var _back_btn",
           "description": ""
         },
         {
-          "name": "ok_btn",
+          "name": "_ok_btn",
           "data_type": "var",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var ok_btn",
+          "signature": "var _ok_btn",
           "description": ""
         },
         {
-          "name": "total_text",
+          "name": "_total_text",
           "data_type": "var",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var total_text",
+          "signature": "var _total_text",
           "description": ""
         }
       ],
@@ -1326,15 +1326,15 @@
       ]
     },
     {
-      "name": "",
+      "name": "Accueil_menu",
       "path": "res://src/accueil_menu.gd",
       "extends_class": [
         "Control"
       ],
       "extends_file": "",
       "icon": "",
-      "signature": "class accueil_menu.gd",
-      "description": "",
+      "signature": "class Accueil_menu",
+      "description": " Script qui accompagne l'instanciation de la scène `accueil_menu.gd`.\n \n Menu d'accueil de l'application Tournoi\n ce menu contient 3 sous menu\n  * nouveau tournoi\n  * historique\n  * options\n",
       "sub_classes": [
 
       ],
