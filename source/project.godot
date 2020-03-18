@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Control",
+"class": "Accueil_menu",
+"language": "GDScript",
+"path": "res://src/accueil_menu.gd"
+}, {
 "base": "TextureButton",
 "class": "Duel_button",
 "language": "GDScript",
@@ -19,10 +24,25 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Game_generator.gd"
 }, {
+"base": "Control",
+"class": "Game_set_results_menu",
+"language": "GDScript",
+"path": "res://src/game_set_results_menu.gd"
+}, {
 "base": "Node",
 "class": "Global_",
 "language": "GDScript",
 "path": "res://src/Global.gd"
+}, {
+"base": "MarginContainer",
+"class": "New_match_menu",
+"language": "GDScript",
+"path": "res://src/new_match_menu.gd"
+}, {
+"base": "MarginContainer",
+"class": "Not_saved_pop_up_not_menu",
+"language": "GDScript",
+"path": "res://src/not_saved_pop_up_menu.gd"
 }, {
 "base": "Reference",
 "class": "Round_buttons",
@@ -33,13 +53,23 @@ _global_script_classes=[ {
 "class": "Score_manager",
 "language": "GDScript",
 "path": "res://src/Score_manager.gd"
+}, {
+"base": "MarginContainer",
+"class": "Start_app_scene",
+"language": "GDScript",
+"path": "res://src/start_app_scene.gd"
 } ]
 _global_script_class_icons={
+"Accueil_menu": "",
 "Duel_button": "",
 "Game_generator": "",
+"Game_set_results_menu": "",
 "Global_": "",
+"New_match_menu": "",
+"Not_saved_pop_up_not_menu": "",
 "Round_buttons": "",
-"Score_manager": ""
+"Score_manager": "",
+"Start_app_scene": ""
 }
 
 [application]
@@ -62,6 +92,10 @@ window/size/width=800
 window/size/height=500
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "gut" )
 
 [rendering]
 
