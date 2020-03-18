@@ -16,7 +16,7 @@ class TestBarFooar:
     extends 'res://addons/gut/test.gd'
 
     func test_one():
-        assert_true(false)
+        assert_true(true)
 
     func test_two():
-        assert_false(true)
+        assert_false(false)
