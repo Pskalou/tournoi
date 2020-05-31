@@ -1,4 +1,4 @@
-# À propos de la version beta
+# Version Beta 15/03/2020
 
 
 ## À propos

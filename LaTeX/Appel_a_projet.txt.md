@@ -2,8 +2,8 @@
 # Appel à projet
 
 
-> Proposition de projet dans le cadre du module **Projet Mathématiques et Informatique** du **DU CCIE**.
-
+Proposition de projet dans le cadre du module **Projet Mathématiques et Informatique** du **DU CCIE**.
+Rendu et accepté (novembre 2019)
 
 
 ## Description du projet

@@ -1,4 +1,4 @@
-# Version alpha
+# Version Alpha 22/01/2020
 
 Nous sommes heureux d'annoncer la mise en ligne de la version alpha de notre application
 
@@ -34,24 +34,24 @@ Développement en 2 temps :
 * mise en forme
 
 
-### 01_premier_algorithme_python.ipynb
+### 01\_premier_algorithme\_python.ipynb
 
 
 * Recherche d'un algorithme générant un tournoi
 * Vérification algorithmique que les tournois générés répondent à la problématique
 
 
-Fichier à télécharger (notre dépot) : source:notebook/01_premier_algorithme_python.ipynb@7ba7f97a
+Fichier à télécharger (notre dépot) : source:notebook/01\_premier\_algorithme_python.ipynb@7ba7f97a
 Fichier à consulter en ligne (visionneuse Github) : [visualisation en ligne](https://github.com/Pskalou/tournoi/blob/master/notebook/01_premier_algorithme_python.ipynb) 
 
 
 
-### 02_algo_plus_lisible.ipynb
+### 02\_algo_plus\_lisible.ipynb
 
 * Mise en forme du code
 * Clarification des différentes parties
 
-Fichier à télécharger (notre dépot) : source:notebook/02_algo_plus_lisible.ipynb@7ba7f97a
+Fichier à télécharger (notre dépot) : source:notebook/02_algo\_plus\_lisible.ipynb@7ba7f97a
 Fichier à consulter en ligne (visionneuse Github) : [à visualiser en ligne](https://github.com/Pskalou/tournoi/blob/master/notebook/01_premier_algorithme_python.ipynb)
 
 
