@@ -1,6 +1,6 @@
 # Contexte
 
-Dans le cadre du Diplôme Universitaire (DU) Compétences Complémentaires en Informatiques pour l'Enseignement (CCIE), les étudiants doivent participer à un projet math-info.
+Dans le cadre du Diplôme Universitaire (DU) [Compétences Complémentaires en Informatiques pour l'Enseignement (CCIE)](https://sciences.univ-amu.fr/du-ccie-competences-complementaires-informatique-lenseignement) de la [faculté des sciences d'Aix-Marseille](https://sciences.univ-amu.fr/), les étudiants doivent participer à un projet math-info.
 
 Nous avons décidé de créer une application multi plateforme : Tournoi. Nous exploitons pour cela le logiciel [GODOT](https://godotengine.org/).
 
