@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/new_match_menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/new_menu/label_titre.png" type="Texture" id=2]
@@ -6,53 +6,48 @@
 [ext_resource path="res://assets/new_menu/label_name.png" type="Texture" id=4]
 [ext_resource path="res://assets/new_menu/label_playersNb.png" type="Texture" id=5]
 [ext_resource path="res://assets/new_menu/label_less.png" type="Texture" id=6]
-[ext_resource path="res://assets/fonts/impact.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/fonts/fonts.tres" type="DynamicFont" id=7]
 [ext_resource path="res://assets/new_menu/label_more.png" type="Texture" id=8]
 [ext_resource path="res://assets/new_menu/label_valid.png" type="Texture" id=9]
-
-[sub_resource type="DynamicFont" id=1]
-size = 70
-use_mipmaps = true
-use_filter = true
-font_data = ExtResource( 7 )
 
 [node name="MarginContainer" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/margin_right = 60
-custom_constants/margin_top = 40
-custom_constants/margin_left = 60
-custom_constants/margin_bottom = 40
+custom_constants/margin_right = 0
+custom_constants/margin_top = 0
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 60.0
-margin_top = 40.0
-margin_right = 740.0
-margin_bottom = 460.0
+margin_right = 800.0
+margin_bottom = 500.0
 
 [node name="TextureRect_title" type="TextureRect" parent="VBoxContainer"]
-margin_right = 680.0
+margin_right = 800.0
 margin_bottom = 61.0
 texture = ExtResource( 2 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 65.0
-margin_right = 680.0
-margin_bottom = 420.0
+margin_right = 800.0
+margin_bottom = 500.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-margin_right = 557.0
-margin_bottom = 355.0
+margin_right = 677.0
+margin_bottom = 435.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 2
 
 [node name="Container2" type="Container" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_right = 557.0
-margin_bottom = 99.0
+margin_right = 677.0
+margin_bottom = 139.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -71,66 +66,66 @@ margin_bottom = 135.0
 texture = ExtResource( 4 )
 
 [node name="Container" type="Container" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 103.0
-margin_right = 557.0
-margin_bottom = 202.0
+margin_top = 143.0
+margin_right = 677.0
+margin_bottom = 282.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="TextureRect_selectNumber" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 206.0
-margin_right = 557.0
-margin_bottom = 255.0
+margin_top = 286.0
+margin_right = 677.0
+margin_bottom = 335.0
 texture = ExtResource( 5 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 259.0
-margin_right = 557.0
-margin_bottom = 355.0
+margin_top = 339.0
+margin_right = 677.0
+margin_bottom = 435.0
 alignment = 1
 
 [node name="less_btn" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-margin_left = 102.0
-margin_right = 198.0
+margin_left = 162.0
+margin_right = 258.0
 margin_bottom = 96.0
 texture_normal = ExtResource( 6 )
 
 [node name="total_text" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-margin_left = 202.0
+margin_left = 262.0
 margin_top = 5.0
-margin_right = 354.0
+margin_right = 414.0
 margin_bottom = 91.0
 rect_min_size = Vector2( 152, 86 )
 size_flags_horizontal = 0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "99"
 align = 1
 valign = 1
 
 [node name="more_btn" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-margin_left = 358.0
-margin_right = 454.0
+margin_left = 418.0
+margin_right = 514.0
 margin_bottom = 96.0
 texture_normal = ExtResource( 8 )
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-margin_left = 561.0
-margin_right = 680.0
-margin_bottom = 355.0
+margin_left = 681.0
+margin_right = 800.0
+margin_bottom = 435.0
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 margin_right = 119.0
-margin_bottom = 114.0
+margin_bottom = 154.0
 rect_min_size = Vector2( 20, 20 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="back_btn" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 self_modulate = Color( 1, 0, 0, 1 )
-margin_top = 118.0
+margin_top = 158.0
 margin_right = 119.0
-margin_bottom = 232.0
+margin_bottom = 312.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 6 )
@@ -138,9 +133,9 @@ expand = true
 stretch_mode = 3
 
 [node name="ok_btn" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 236.0
+margin_top = 316.0
 margin_right = 119.0
-margin_bottom = 355.0
+margin_bottom = 435.0
 texture_normal = ExtResource( 9 )
 stretch_mode = 3
 [connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/less_btn" to="." method="_on_less_btn_mouse_entered"]

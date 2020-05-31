@@ -22,7 +22,8 @@ Type | Name
 bool | func exist_result(id1: int, id2: int) -> bool
 void | func set_result(player_id: int, opponent_id: int, state: int) -> void
 int | func get_result(player_id: int, opponent_id: int) -> int
-String | func score_en_texte() -> String
+String | func score_en_texte(little = false) -> String
+String | func score_en_texte_little() -> String
 
 ## Property Descriptions ##
 
@@ -103,9 +104,18 @@ TODO : utiliser des prédicats ? retourner uniquement les scores  ?
 ### score\_en\_texte ###
 
 ```gdscript
-func score_en_texte() -> String
+func score_en_texte(little = false) -> String
 ```
 
 Transforme le tableau des états en score en utilisant le barême.
 
-TODO : version CLI à passer en GUI
+un argument little
+* little= true  pour un tableau avec uniquement le total
+* little= false pour un tableau détaillé
+
+### score\_en\_texte\_little ###
+
+```gdscript
+func score_en_texte_little() -> String
+```
+

@@ -9,6 +9,9 @@ class_name Global_
 
 extends Node
 
+# Actualiser l'affichage du tableau des scores
+signal actualise_affichage
+
 
 # attribut privé : nombre total de joueur (par défaut = 6)
 var _total_players:int= 6
@@ -61,6 +64,10 @@ var new_match_menu= 		preload("res://new_match_menu.tscn").instance()
 var game_set_results_menu= 	preload("res://game_set_results_menu.tscn").instance()
 
 
+# résultats
+var results_menu= 	preload("res://results.tscn").instance()
+
+
 # Setter pour définir le nombre de joueurs dans le tournoi actuel.
 func set_total_players(nombre_de_joueurs:int) -> void:
 	_total_players= nombre_de_joueurs
@@ -81,3 +88,4 @@ func button_hover(button:TextureButton) -> void:
 # à appliquer pour réinitialiser le bouton de type TextureButton (après un survol de la souris).
 func button_init(button):
 	button.modulate= Color(1,1,1,1)
+

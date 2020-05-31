@@ -215,10 +215,27 @@
           "export": false,
           "signature": "var game_set_results_menu",
           "description": " Instance de la scène qui affiche le tournoi, les boutons et le score en direct.\n Visible ou pas en fonction de l'interface souhaitée.\n"
+        },
+        {
+          "name": "results_menu",
+          "data_type": "var",
+          "default_value": null,
+          "setter": "",
+          "getter": "",
+          "export": false,
+          "signature": "var results_menu",
+          "description": " résultats\n"
         }
       ],
       "signals": [
+        {
+          "name": "actualise_affichage",
+          "arguments": [
 
+          ],
+          "signature": "signal actualise_affichage()",
+          "description": " Actualiser l'affichage du tableau des scores\n"
+        }
       ],
       "methods": [
         {
@@ -605,19 +622,6 @@
           "arguments": [
 
           ]
-        },
-        {
-          "name": "_process",
-          "return_type": "var",
-          "rpc_mode": 0,
-          "signature": "func _process(delta)",
-          "description": "",
-          "arguments": [
-            {
-              "name": "delta",
-              "type": "var"
-            }
-          ]
         }
       ],
       "static_functions": [
@@ -877,11 +881,35 @@
           ]
         },
         {
+          "name": "_results_to_score_array",
+          "return_type": "var",
+          "rpc_mode": 0,
+          "signature": "func _results_to_score_array()",
+          "description": " Transforme le tableau des états en tableau de score\n",
+          "arguments": [
+
+          ]
+        },
+        {
           "name": "score_en_texte",
           "return_type": "String",
           "rpc_mode": 0,
-          "signature": "func score_en_texte() -> String",
-          "description": " Transforme le tableau des états en score en utilisant le barême.\n\n TODO : version CLI à passer en GUI\n",
+          "signature": "func score_en_texte(little = false) -> String",
+          "description": " Transforme le tableau des états en score en utilisant le barême.\n\n un argument little\n  * little= true  pour un tableau avec uniquement le total\n  * little= false pour un tableau détaillé\n",
+          "arguments": [
+            {
+              "name": "little",
+              "type": "var",
+              "default_value": false
+            }
+          ]
+        },
+        {
+          "name": "score_en_texte_little",
+          "return_type": "String",
+          "rpc_mode": 0,
+          "signature": "func score_en_texte_little() -> String",
+          "description": "",
           "arguments": [
 
           ]

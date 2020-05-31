@@ -70,6 +70,9 @@ func set_result(player_id:int, opponent_id:int, state:int) -> void:
 	
 	# tableau modifié et non sauvegardé
 	Global.is_saved= false
+	
+	# mise à jour affichage
+	Global.emit_signal("actualise_affichage")
 
 
 # Retourne l'état d'un match entre player_id et son adversaire opponent_id.
@@ -85,13 +88,11 @@ func get_result(player_id:int, opponent_id:int) -> int:
 	if ! _results[player_id].has(opponent_id): return 0
 	return _results[player_id][opponent_id]
 
-
-# Transforme le tableau des états en score en utilisant le barême.
-#
-# TODO : version CLI à passer en GUI
-func score_en_texte() -> String:
+# Transforme le tableau des états en tableau de score
+func _results_to_score_array():
 	var total
 	var state
+	# génération du tableau de score
 	var score_array= []
 	for i in range(_total_players):
 		score_array.append([])
@@ -101,15 +102,113 @@ func score_en_texte() -> String:
 			if _results[i].has(j):
 				state= _results[i][j]
 				if state == 1:	score_array[i][j]= win_points
-				if state == 2:  score_array[i][j]= lose_points
+				if state == 2:	score_array[i][j]= lose_points
 				total += score_array[i][j]			
 		score_array[i].append(total)
-
+	return score_array
+	
+# Transforme le tableau des états en score en utilisant le barême.
+#
+# un argument little
+#  * little= true  pour un tableau avec uniquement le total
+#  * little= false pour un tableau détaillé
+func score_en_texte(little= false) -> String:
+	var score_array= _results_to_score_array()
 	var texte= ""
+	texte += "[font=res://assets/fonts/fonts_tab.tres]"
+	# création d'un tableau de nb_col colonnes
+	# en 
+	var nb_col
+	if little:
+		nb_col= 2
+	else:
+		nb_col= _total_players + 2
+	
+	texte += "[table=%s]" %str(nb_col)
+	
+	# ligne de titre
+	texte += "[row]"
+	texte += "[cell][center]"
+	texte += " "
+	texte += "[/center][/cell]"
+	if not little:
+		for j in range(_total_players) :
+			texte += "[cell][center]"
+			texte += "[color=#88ffffff]p%s[/color]" % str(j)
+			texte += "[/center][/cell]"
+	texte += "[cell][center]"
+	texte += "Total"
+	texte += "[/center][/cell]"
+	texte += "[/row]"
+	
+	# ligne pour chaque joueur
+	print ("taille du tableau score_array: %s" % len(score_array))
 	for i in len(score_array):
-		for j in len(score_array[i])-1:
-			if j == i: continue
-			texte += str(score_array[i][j]) + "\t"
-		texte += "\t→\t" + str(score_array[i][len(score_array[i])-1])
-		texte += "\n"
+		print ("ligne %s" % i)
+		texte += "[row]"
+		texte += "[cell][center]"
+		texte += "[font=res://assets/fonts/fonts_tab2.tres]"
+		texte += "p" + str(i) + " "
+		texte += "[/font]"
+		texte += "[/center][/cell]"
+		
+		if not little:
+			for j in len(score_array[i])-1:
+				if j == i: 
+					texte += "[cell][center]"
+					texte += "—"
+					texte += "[/center][/cell]"
+					continue
+				texte += "[cell][center]"
+				var val = score_array[i][j]
+				if val == no_point:
+					texte += "[color=#88ffffff]"
+				elif val == lose_points:
+					texte += "[color=#ffff6666]"
+				else:				
+					texte += "[color=#ff99ff99]"
+					
+				texte += str(val)
+				texte += "[/color]"
+				texte += "[/center][/cell]"
+		
+		texte += "[cell][center]"
+		texte += "[font=res://assets/fonts/fonts_tab2.tres]"
+		texte += str(score_array[i][len(score_array[i])-1])
+		texte += "[/font]"
+		texte += "[/center][/cell]"
+		texte += "[/row]"
+	
+	texte += "[/table]"
+	texte += "[/font]"
+	return texte
+
+
+
+func score_en_texte_little() -> String:
+	var score_array= _results_to_score_array()
+	var texte= ""
+	texte += "[font=res://assets/fonts/fonts_tab.tres]"
+	
+	# création d'un tableau de nb_col colonnes
+	texte += "[table=%s]" %str(4)
+	
+	
+	# ligne pour chaque joueur
+	
+	texte += "[row]"
+	for i in len(score_array):
+		texte += "[cell][center]"
+		texte += "[font=res://assets/fonts/fonts_tab2.tres]"
+		texte += "p" + str(i) + ": "
+		texte += str(score_array[i][len(score_array[i])-1])
+		texte += " "
+		texte += "[/font]"
+		texte += "[/center][/cell]"
+		if i%4 == 0:
+			texte += "[/row]"
+			texte += "[row]"
+	
+	texte += "[/table]"
+	texte += "[/font]"
 	return texte

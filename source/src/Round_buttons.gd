@@ -79,6 +79,11 @@ func build(round_index:int, current_node:Node) -> Array:
 		# boucle suivante
 		pos += Vector2(0, 50)
 		i= i+1
+		
+		# nouvelle colonne pour avoir moins que 7 lignes
+		if i%7==0:
+			pos.x= pos.x + 100
+			pos.y= 0
 	
 	
 	# retourne le tableau de tous les boutons

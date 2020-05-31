@@ -27,6 +27,7 @@ MarginContainer | main
 var | accueil_menu
 var | new_match_menu
 var | game_set_results_menu
+var | results_menu
 
 ## Functions ##
 
@@ -36,6 +37,10 @@ void | func set_total_players(nombre_de_joueurs: int) -> void
 int | func get_total_players() -> int
 void | func button_hover(button: TextureButton) -> void
 var | func button_init(button)
+
+## Signals ##
+
+- signal actualise_affichage(): Actualiser l'affichage du tableau des scores
 
 ## Property Descriptions ##
 
@@ -121,6 +126,14 @@ var game_set_results_menu
 
 Instance de la scène qui affiche le tournoi, les boutons et le score en direct.
 Visible ou pas en fonction de l'interface souhaitée.
+
+### results\_menu ###
+
+```gdscript
+var results_menu
+```
+
+résultats
 
 ## Method Descriptions ##
 

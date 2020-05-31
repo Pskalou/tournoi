@@ -40,8 +40,11 @@ func init():
 	Global.round_buttons= Round_buttons.new()
 	# afficher les nouveaux boutons
 	Global.round_buttons_list= Global.round_buttons.build(_round_index, _right_column_contains_node)
-
-
+	
+	# actualise affichages
+	_update_displays()
+	
+	
 # Getter qui retourne l'index du round en cours.
 func get_round_index() -> int:
 	return _round_index
@@ -61,9 +64,8 @@ func _ready():
 	_left_column_text_node= $MarginContainer/VBoxContainer/HBoxContainer/vboxTours/HBoxContainer/richlab_tour
 	_round_index_node= $MarginContainer/VBoxContainer/HBoxContainer/vboxTours/hbox_tour/lab_tourIndex
 	_right_column_contains_node= $MarginContainer/VBoxContainer/HBoxContainer/vboxTours/HBoxContainer/allTournoi
-	_right_column_contains_node= $MarginContainer/VBoxContainer/HBoxContainer/vboxTours/HBoxContainer/allTournoi
 	
-	# classe qui gère la répartition des matchss et son instance
+	# classe qui gère la répartition des matchs et son instance
 	Global.game = Game_generator.new()
 	
 	# classe qui gère le score et son instance
@@ -72,7 +74,11 @@ func _ready():
 	# afficher les n/2 couples de boutons 	
 	Global.round_buttons  = Round_buttons.new()
 	_round_buttons_list= Global.round_buttons.build(_round_index, _right_column_contains_node)
-
+	
+	# écouteur de signal lorsque le tableau est actualisé
+	# et qu'il faut actualiser l'affichage
+	Global.connect("actualise_affichage", self, "_update_displays")
+	
 	# actualise affichages
 	_update_displays()
 
@@ -123,7 +129,7 @@ func _on_previous_btn_pressed():
 
 
 # Gestion  des affichages
-func _update_displays () :	
+func _update_displays () :
 	_update__round_index_text()
 	_update_rounds_text()
 
@@ -131,8 +137,14 @@ func _update_displays () :
 # actualiser le texte des scores
 # dans la colonne de gauche
 func _update_rounds_text():
-	var texte= Global.score.score_en_texte()
-	_left_column_text_node.set_text(texte)
+	var texte
+	if Global.get_total_players() < 13:
+		texte= Global.score.score_en_texte()
+	else:
+		texte= Global.score.score_en_texte_little()
+	
+	
+	_left_column_text_node.bbcode_text = texte
 
 
 # actualiser le texte du n° du tour actuel
@@ -141,9 +153,4 @@ func _update__round_index_text():
 	"""
 	var texte= "Tour n° %3s" % _round_index
 	_round_index_node.set_text(texte)
-
-
-func _process(delta):
-	# actualisation toutes les fps pour mettre à jour le tableau
-	_update_displays ()
 

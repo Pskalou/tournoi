@@ -1,7 +1,5 @@
 extends 'res://addons/gut/test.gd'
-
-
-
+# lancer les tests à partir de VSCode et de l'extension Godot/GUT
 
 class Test_correction_gameGenerator:
     extends 'res://addons/gut/test.gd'
