@@ -2,7 +2,7 @@
 
 L'organisation du projet est inspirée de la méthode Scrum.
 
-
+![](Scrum_VueGlobaleScrum.png)
 
 ## Avant le projet, la liste des fonctionnalités : le BACKLOG DU PRODUIT
 
@@ -18,6 +18,7 @@ Une fois que le projet est lancé, la méthode Scrum consiste en une **itératio
 Toute la durée de développement du projet est segmentée en une répétition de cycle (appelés **sprint**), chacun d'une durée de 1 à 4 semaine (**à définir**).
 
 
+![](Scrum_external-content.jpg)
 
 
 1. **Avant** de débuter un *sprint*, l'équipe de développement défini le **Backlog du sprint** c'est à dire les fonctionnalités qui vont être développées durant le sprint. Ces fonctionnalités sont issues du *Backlog du produit*.

@@ -3,7 +3,7 @@
 
 ## À propos
 
-Nous rendons aujourd'hui la version BETA de notre projet.
+Nous rendons la version BETA de notre projet.
 Nous avons avancé sur de nombreux points :
 
 Concernant l'application :
@@ -34,4 +34,3 @@ Concernant le projet :
 * Documentation docstring de l'API : [https://github.com/Pskalou/tournoi/tree/master/source/doc](https://github.com/Pskalou/tournoi/tree/master/source/doc)
 * Clarification de l'algorithme de création de tournoi (visionneuse Github) : [[à visualiser en ligne]](https://github.com/Pskalou/tournoi/blob/master/notebook/01_premier_algorithme_python.ipynb)
 * Code source de l'application : [https://github.com/Pskalou/tournoi/tree/master/source](https://github.com/Pskalou/tournoi/tree/master/source)
-

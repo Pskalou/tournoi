@@ -6,7 +6,15 @@
 
 \usepackage[smartEllipses]{markdown}
 \usepackage{pdfpages}
+% \usepackage{float}
 
+% \let\origfigure=\figure
+% \let\endorigfigure=\endfigure
+% \renewenvironment{figure}[1][]{%
+%   \origfigure[H]
+% }{%
+%   \endorigfigure
+% }
 
 \title{Rapport de l'unité Projet math/info}
 \author{    Thoma Lessage\\
@@ -27,10 +35,6 @@
 
 
 
-%%% à propos de la version BETA
-\newpage\pagecolor{bleuamu!10}
-\markdownInput{md_wiki/Version_beta.txt.md}
-
 
 
 %%% Sommaire coloré
@@ -50,31 +54,65 @@
 \nopagecolor
 \part{Présentation du projet}
 
-\markdownInput{md_wiki/Appel_a_projet.txt.md}
+Dans le cadre du Diplôme Universitaire (DU) Compétences Complémentaires en Informatiques pour l'Enseignement (CCIE), les étudiants doivent participer à un projet math-info.
+
+Nous avons décidé de créer une application multi plateforme : Tournoi. Nous exploitons pour cela le logiciel GODOT.
+
+Notre application est disponible pour différentes machines.
+
+\begin{itemize}
+    \item Linux
+    \item Android
+    \item Windows
+    \item Windows universal
+    \item iOS
+    \item HTML5
+    \item LaTeX
+\end{itemize}
+
+
+\textbf{Site du projet}
+
+
+Tout au long du projet, nous avons travaillé avec Redmine (que nous avons installé sur nos propres serveurs)
+
+\url{https://pp.irem.univ-mrs.fr/projects/application-tournoi}
+
+
+\textbf{Équipe}
+
+    Pascal : Pskalou
+    Raphaël : RaphaelSellam
+    Thomas : t-lesage
+
+
+\markdownInput{Appel_a_projet.txt.md}
 \newpage
-\markdownInput{md_wiki/Road_map.txt.md}
+\markdownInput{Road_map.txt.md}
 \newpage
-\markdownInput{md_wiki/Version_alpha.txt.md}
+\markdownInput{Version_alpha.txt.md}
+\newpage
+\markdownInput{Version_beta.txt.md}
 
 
 \newpage
 \part{Méthodologie de gestion du projet}
 
-\markdownInput{md_wiki/Scrum.txt.md}
+\markdownInput{Scrum.txt.md}
 \newpage
-\markdownInput{md_wiki/Sprint_et_visioconf.txt.md}
+\markdownInput{Sprint_et_visioconf.txt.md}
 
 
 \newpage
 \part{Outils utilisés}
-\markdownInput{md_wiki/Godot.txt.md}
+\markdownInput{Godot.txt.md}
 \newpage
-\markdownInput{md_wiki/Depot_git.txt.md}
+\markdownInput{Depot_git.txt.md}
 
 
 \newpage
 \part{Documentation et références techniques}
-\markdownInput{md_wiki/Generateur_automatique_de_doc.txt.md}
+\markdownInput{Generateur_automatique_de_doc.txt.md}
 \newpage
 \markdownInput{../source/doc/Duel_button.md}
 \newpage
@@ -83,9 +121,10 @@
 \markdownInput{../source/doc/Round_buttons.md}
 \newpage
 \markdownInput{../source/doc/Score_manager.md}
-\includepdf[scale=.8, page=1, pagecommand=\section{Une approche mathématique}]{md_wiki/Projet_Tournois.pdf}
-\includepdf[scale=.9, page=2-4]{md_wiki/Projet_Tournois.pdf}
-\includepdf[scale=.9, page=2-4]{md_wiki/Projet_Tournois_Bis.pdf}
+
+\includepdf[scale=.8, page=1, pagecommand=\section{Une approche mathématique}]{Projet_Tournois.pdf}
+\includepdf[scale=.9, page=2-4]{Projet_Tournois.pdf}
+\includepdf[scale=.9, page=2-4]{Projet_Tournois_Bis.pdf}
 
 
 
