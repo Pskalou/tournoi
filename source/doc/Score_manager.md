@@ -22,8 +22,7 @@ Type | Name
 bool | func exist_result(id1: int, id2: int) -> bool
 void | func set_result(player_id: int, opponent_id: int, state: int) -> void
 int | func get_result(player_id: int, opponent_id: int) -> int
-String | func score_en_texte(little = false) -> String
-String | func score_en_texte_little() -> String
+String | func score_en_bbcode(little = false) -> String
 
 ## Property Descriptions ##
 
@@ -101,21 +100,18 @@ Retourne l'état d'un match entre player_id et son adversaire opponent_id.
 TODO : les états 0/1/2 doivent être internes à la classe.
 TODO : utiliser des prédicats ? retourner uniquement les scores  ?
 
-### score\_en\_texte ###
+### score\_en\_bbcode ###
 
 ```gdscript
-func score_en_texte(little = false) -> String
+func score_en_bbcode(little = false) -> String
 ```
 
-Transforme le tableau des états en score en utilisant le barême.
+Retourne le tableau des scores sous la forme d'un texte
+au format BBcode
 
-un argument little
+Cette fonction transforme le tableau des états (0, 1 ou 2)
+en texte de score en fonction du barême par défaut.
 * little= true  pour un tableau avec uniquement le total
 * little= false pour un tableau détaillé
 
-### score\_en\_texte\_little ###
-
-```gdscript
-func score_en_texte_little() -> String
-```
-
+TODO : rendre le barême par défaut modifiable (menu option)
