@@ -88,6 +88,7 @@ func get_result(player_id:int, opponent_id:int) -> int:
 	if ! _results[player_id].has(opponent_id): return 0
 	return _results[player_id][opponent_id]
 
+
 # Transforme le tableau des états en tableau de score
 func _results_to_score_array():
 	var total
@@ -106,23 +107,36 @@ func _results_to_score_array():
 				total += score_array[i][j]			
 		score_array[i].append(total)
 	return score_array
-	
-# Transforme le tableau des états en score en utilisant le barême.
-#
-# un argument little
+
+
+# Retourne le tableau des scores sous la forme d'un texte
+# au format BBcode
+# 
+# Cette fonction transforme le tableau des états (0, 1 ou 2)
+# en texte de score en fonction du barême par défaut.
 #  * little= true  pour un tableau avec uniquement le total
 #  * little= false pour un tableau détaillé
-func score_en_texte(little= false) -> String:
+#
+# TODO : rendre le barême par défaut modifiable (menu option)
+func score_en_bbcode(little= false) -> String:
+	if little:
+		return _score_en_bbcode_little_screen()
+	else:
+		return _score_en_bbcode_big_screen()
+
+
+# Affichage du tableau de score
+# grand format détaillé + Total: 
+#  * 1 participant par ligne
+#  * 1 participant par colonne
+#  * + colonne Total
+# Le format de texte est BBcode en couleur
+func _score_en_bbcode_big_screen() -> String:
 	var score_array= _results_to_score_array()
 	var texte= ""
 	texte += "[font=res://assets/fonts/fonts_tab.tres]"
 	# création d'un tableau de nb_col colonnes
-	# en 
-	var nb_col
-	if little:
-		nb_col= 2
-	else:
-		nb_col= _total_players + 2
+	var nb_col= _total_players + 2
 	
 	texte += "[table=%s]" %str(nb_col)
 	
@@ -131,20 +145,17 @@ func score_en_texte(little= false) -> String:
 	texte += "[cell][center]"
 	texte += " "
 	texte += "[/center][/cell]"
-	if not little:
-		for j in range(_total_players) :
-			texte += "[cell][center]"
-			texte += "[color=#88ffffff]p%s[/color]" % str(j)
-			texte += "[/center][/cell]"
+	for j in range(_total_players) :
+		texte += "[cell][center]"
+		texte += "[color=#88ffffff]p%s[/color]" % str(j)
+		texte += "[/center][/cell]"
 	texte += "[cell][center]"
 	texte += "Total"
 	texte += "[/center][/cell]"
 	texte += "[/row]"
 	
 	# ligne pour chaque joueur
-	print ("taille du tableau score_array: %s" % len(score_array))
 	for i in len(score_array):
-		print ("ligne %s" % i)
 		texte += "[row]"
 		texte += "[cell][center]"
 		texte += "[font=res://assets/fonts/fonts_tab2.tres]"
@@ -152,25 +163,24 @@ func score_en_texte(little= false) -> String:
 		texte += "[/font]"
 		texte += "[/center][/cell]"
 		
-		if not little:
-			for j in len(score_array[i])-1:
-				if j == i: 
-					texte += "[cell][center]"
-					texte += "—"
-					texte += "[/center][/cell]"
-					continue
+		for j in len(score_array[i])-1:
+			if j == i: 
 				texte += "[cell][center]"
-				var val = score_array[i][j]
-				if val == no_point:
-					texte += "[color=#88ffffff]"
-				elif val == lose_points:
-					texte += "[color=#ffff6666]"
-				else:				
-					texte += "[color=#ff99ff99]"
-					
-				texte += str(val)
-				texte += "[/color]"
+				texte += "—"
 				texte += "[/center][/cell]"
+				continue
+			texte += "[cell][center]"
+			var val = score_array[i][j]
+			if val == no_point:
+				texte += "[color=#88ffffff]"
+			elif val == lose_points:
+				texte += "[color=#ffff6666]"
+			else:				
+				texte += "[color=#ff99ff99]"
+				
+			texte += str(val)
+			texte += "[/color]"
+			texte += "[/center][/cell]"
 		
 		texte += "[cell][center]"
 		texte += "[font=res://assets/fonts/fonts_tab2.tres]"
@@ -183,9 +193,11 @@ func score_en_texte(little= false) -> String:
 	texte += "[/font]"
 	return texte
 
-
-
-func score_en_texte_little() -> String:
+	
+# Affichage du tableau de score
+# petit format uniquement le Total
+# Le format de texte est BBcode
+func _score_en_bbcode_little_screen() -> String:
 	var score_array= _results_to_score_array()
 	var texte= ""
 	texte += "[font=res://assets/fonts/fonts_tab.tres]"
@@ -193,9 +205,7 @@ func score_en_texte_little() -> String:
 	# création d'un tableau de nb_col colonnes
 	texte += "[table=%s]" %str(4)
 	
-	
 	# ligne pour chaque joueur
-	
 	texte += "[row]"
 	for i in len(score_array):
 		texte += "[cell][center]"

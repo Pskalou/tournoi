@@ -891,11 +891,11 @@
           ]
         },
         {
-          "name": "score_en_texte",
+          "name": "score_en_bbcode",
           "return_type": "String",
           "rpc_mode": 0,
-          "signature": "func score_en_texte(little = false) -> String",
-          "description": " Transforme le tableau des états en score en utilisant le barême.\n\n un argument little\n  * little= true  pour un tableau avec uniquement le total\n  * little= false pour un tableau détaillé\n",
+          "signature": "func score_en_bbcode(little = false) -> String",
+          "description": " Retourne le tableau des scores sous la forme d'un texte\n au format BBcode\n \n Cette fonction transforme le tableau des états (0, 1 ou 2)\n en texte de score en fonction du barême par défaut.\n  * little= true  pour un tableau avec uniquement le total\n  * little= false pour un tableau détaillé\n\n TODO : rendre le barême par défaut modifiable (menu option)\n",
           "arguments": [
             {
               "name": "little",
@@ -905,11 +905,21 @@
           ]
         },
         {
-          "name": "score_en_texte_little",
+          "name": "_score_en_bbcode_big_screen",
           "return_type": "String",
           "rpc_mode": 0,
-          "signature": "func score_en_texte_little() -> String",
-          "description": "",
+          "signature": "func _score_en_bbcode_big_screen() -> String",
+          "description": " Affichage du tableau de score\n grand format détaillé + Total: \n  * 1 participant par ligne\n  * 1 participant par colonne\n  * + colonne Total\n Le format de texte est BBcode en couleur\n",
+          "arguments": [
+
+          ]
+        },
+        {
+          "name": "_score_en_bbcode_little_screen",
+          "return_type": "String",
+          "rpc_mode": 0,
+          "signature": "func _score_en_bbcode_little_screen() -> String",
+          "description": " Affichage du tableau de score\n petit format uniquement le Total\n Le format de texte est BBcode\n",
           "arguments": [
 
           ]

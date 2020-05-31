@@ -137,14 +137,13 @@ func _update_displays () :
 # actualiser le texte des scores
 # dans la colonne de gauche
 func _update_rounds_text():
-	var texte
+	var bbcode_texte
 	if Global.get_total_players() < 13:
-		texte= Global.score.score_en_texte()
+		bbcode_texte= Global.score.score_en_bbcode(false)
 	else:
-		texte= Global.score.score_en_texte_little()
+		bbcode_texte= Global.score.score_en_bbcode(true)
 	
-	
-	_left_column_text_node.bbcode_text = texte
+	_left_column_text_node.bbcode_text = bbcode_texte
 
 
 # actualiser le texte du n° du tour actuel
